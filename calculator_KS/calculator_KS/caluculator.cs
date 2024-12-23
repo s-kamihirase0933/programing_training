@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,10 @@ namespace calculator_KS
             {
                 display.Text = Zero.Text;
                 TextBox_overwrite = false;
+                if(display.Text == "0")
+                {
+                    TextBox_overwrite = true;
+                }
             }
             else
             {
@@ -136,6 +141,7 @@ namespace calculator_KS
             {
                 display.Text = Eight.Text;
                 TextBox_overwrite = false;
+                Clear.Text = "C";s
             }
             else
             {
@@ -160,12 +166,6 @@ namespace calculator_KS
         {
             display.Text += Point.Text;
             TextBox_overwrite = false;
-        }
-
-        private void Clear_Click(object sender, EventArgs e)
-        {
-            TextBox_overwrite = true;
-            display.Text = "0";
         }
 
         /*
@@ -216,26 +216,88 @@ namespace calculator_KS
          */
         private void Plus_Click(object sender, EventArgs e)        //"+"クリック時
         {
-            mType = MarksType.PLUS;
             TextBox_overwrite = true;
+            Num_Pool();
+            mType = MarksType.PLUS;
 
         }
         private void Minus_Click(object sender, EventArgs e)       //"-"クリック時
         {
-            mType = MarksType.MINUS;
             TextBox_overwrite = true;
+            Num_Pool();
+            mType = MarksType.MINUS;
+            
         }
         private void Multiplied_Click(object sender, EventArgs e)  //"×"クリック時
         {
-            mType = MarksType.MULTIPLIED;
             TextBox_overwrite = true;
+            Num_Pool();
+            mType = MarksType.MULTIPLIED;
+            
         }
         private void Devided_Click(object sender, EventArgs e)     //"÷"クリック時
         {
-            mType = MarksType.DEVIDED;
             TextBox_overwrite = true;
+            Num_Pool();
+            mType = MarksType.DEVIDED;
+            
         }
 
+        private void Equal_Click(object sender, EventArgs e)
+        {
+            TextBox_overwrite = true;
+            Num_Pool();
+            mType = MarksType.NON;
+        }
 
+        /*
+         * 
+         * クリアボタンクリックイベント
+         * 
+         */
+
+        private void Clear_Click(object sender, EventArgs e)//本メソッド製造中にエラー
+        {
+            if(Clear.Text == "C")
+            {
+                TextBox_overwrite = true;
+                display.Text = "0";
+                Clear.Text = "AC";
+            }
+            else if(Clear.Text == "AC")
+            {
+                TextBox_overwrite = true;
+                display.Text = "0";
+                dNum = 0;
+
+            }
+            
+
+        }
+
+        /*
+         * 
+         * 符号ボタンクリックイベント
+         * 
+         */
+        private void Sign_Click(object sender, EventArgs e)
+        {
+            if(display.Text == "0") {
+                return;
+            }
+            if (display.Text.Contains("-"))
+            {
+                display.Text = display.Text.Replace("-", "");
+            }
+            else
+            {
+                display.Text = "-" + display.Text;
+            }
+        }
+
+        private void Divided_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
