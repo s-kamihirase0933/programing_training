@@ -394,7 +394,15 @@ namespace calculator_KS
                 BtnActivation(true);
 
             }
-            
+            BtnColorChange("PLUS", "DEFAULT");
+            BtnColorChange("MINUS", "DEFAULT");
+            BtnColorChange("MULTIPLE", "DEFAULT");
+            BtnColorChange("DIVIDE", "DEFAULT");
+            Plus.Enabled = true;
+            Minus.Enabled = true;
+            Multiple.Enabled = true;
+            Divide.Enabled = true;
+
         }
 
         /*
