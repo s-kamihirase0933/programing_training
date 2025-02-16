@@ -1,21 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\",
+  "WorkspaceRootPath": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|c:\\users\\owner\\onedrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_ks\\calculator_ks\\caluculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|solutionrelative:calculator_ks\\caluculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_ks\\caluculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_ks\\caluculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|solutionrelative:calculator_ks\\caluculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_ks\\caluculator.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_ks\\caluculator.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|solutionrelative:calculator_ks\\caluculator.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_ks\\caluculator.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_ks\\caluculator.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{CF5E3F05-FB07-480E-9945-DAD5863F1F34}|calculator_KS\\calculator_KS.csproj|solutionrelative:calculator_ks\\caluculator.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
@@ -26,15 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "caluculator.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.cs",
+              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.cs",
               "RelativeDocumentMoniker": "calculator_KS\\caluculator.cs",
-              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.cs [\u30C7\u30B6\u30A4\u30F3]",
               "RelativeToolTip": "calculator_KS\\caluculator.cs [\u30C7\u30B6\u30A4\u30F3]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-31T14:03:31.758Z",
@@ -42,11 +38,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "caluculator.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.Designer.cs",
               "RelativeDocumentMoniker": "calculator_KS\\caluculator.Designer.cs",
-              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.Designer.cs",
+              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.Designer.cs",
               "RelativeToolTip": "calculator_KS\\caluculator.Designer.cs",
               "ViewState": "AQIAAA8BAAAAAAAAAAAUwB4BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,27 +51,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "caluculator.resx",
-              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.resx",
+              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.resx",
               "RelativeDocumentMoniker": "calculator_KS\\caluculator.resx",
-              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.resx",
+              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\calculator_KS\\caluculator.resx",
               "RelativeToolTip": "calculator_KS\\caluculator.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2024-11-11T08:45:59.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "caluculator.cs",
-              "DocumentMoniker": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.cs",
-              "RelativeDocumentMoniker": "calculator_KS\\caluculator.cs",
-              "ToolTip": "C:\\Users\\OWNER\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\calculator\\calculator_KS\\calculator_KS\\caluculator.cs",
-              "RelativeToolTip": "calculator_KS\\caluculator.cs",
-              "ViewState": "AQIAAL8AAAAAAAAAAAAIwOsAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T14:07:29.518Z",
               "EditorCaption": ""
             }
           ]
