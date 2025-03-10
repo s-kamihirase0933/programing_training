@@ -28,219 +28,219 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Nine = new System.Windows.Forms.Button();
-            this.Eight = new System.Windows.Forms.Button();
-            this.Seven = new System.Windows.Forms.Button();
-            this.Four = new System.Windows.Forms.Button();
-            this.Five = new System.Windows.Forms.Button();
-            this.Six = new System.Windows.Forms.Button();
-            this.One = new System.Windows.Forms.Button();
-            this.Two = new System.Windows.Forms.Button();
-            this.Three = new System.Windows.Forms.Button();
-            this.Multiple = new System.Windows.Forms.Button();
-            this.Point = new System.Windows.Forms.Button();
-            this.Zero = new System.Windows.Forms.Button();
-            this.Plus = new System.Windows.Forms.Button();
-            this.Minus = new System.Windows.Forms.Button();
-            this.Equal = new System.Windows.Forms.Button();
-            this.Divide = new System.Windows.Forms.Button();
-            this.Clear = new System.Windows.Forms.Button();
+            this.nine = new System.Windows.Forms.Button();
+            this.eight = new System.Windows.Forms.Button();
+            this.seven = new System.Windows.Forms.Button();
+            this.four = new System.Windows.Forms.Button();
+            this.five = new System.Windows.Forms.Button();
+            this.six = new System.Windows.Forms.Button();
+            this.one = new System.Windows.Forms.Button();
+            this.two = new System.Windows.Forms.Button();
+            this.three = new System.Windows.Forms.Button();
+            this.multiple = new System.Windows.Forms.Button();
+            this.point = new System.Windows.Forms.Button();
+            this.zero = new System.Windows.Forms.Button();
+            this.plus = new System.Windows.Forms.Button();
+            this.minus = new System.Windows.Forms.Button();
+            this.equal = new System.Windows.Forms.Button();
+            this.divide = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
             this.display = new System.Windows.Forms.TextBox();
-            this.Sign = new System.Windows.Forms.Button();
+            this.sign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Nine
+            // nine
             // 
-            this.Nine.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Nine.Location = new System.Drawing.Point(306, 206);
-            this.Nine.Name = "Nine";
-            this.Nine.Size = new System.Drawing.Size(92, 73);
-            this.Nine.TabIndex = 0;
-            this.Nine.Text = "9";
-            this.Nine.UseVisualStyleBackColor = true;
-            this.Nine.Click += new System.EventHandler(this.Nine_Click);
+            this.nine.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.nine.Location = new System.Drawing.Point(306, 206);
+            this.nine.Name = "nine";
+            this.nine.Size = new System.Drawing.Size(92, 73);
+            this.nine.TabIndex = 0;
+            this.nine.Text = "9";
+            this.nine.UseVisualStyleBackColor = true;
+            this.nine.Click += new System.EventHandler(this.Nine_Click);
             // 
-            // Eight
+            // eight
             // 
-            this.Eight.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Eight.Location = new System.Drawing.Point(208, 206);
-            this.Eight.Name = "Eight";
-            this.Eight.Size = new System.Drawing.Size(92, 73);
-            this.Eight.TabIndex = 1;
-            this.Eight.Text = "8";
-            this.Eight.UseVisualStyleBackColor = true;
-            this.Eight.Click += new System.EventHandler(this.Eight_Click);
+            this.eight.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.eight.Location = new System.Drawing.Point(208, 206);
+            this.eight.Name = "eight";
+            this.eight.Size = new System.Drawing.Size(92, 73);
+            this.eight.TabIndex = 1;
+            this.eight.Text = "8";
+            this.eight.UseVisualStyleBackColor = true;
+            this.eight.Click += new System.EventHandler(this.Eight_Click);
             // 
-            // Seven
+            // seven
             // 
-            this.Seven.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Seven.Location = new System.Drawing.Point(110, 206);
-            this.Seven.Name = "Seven";
-            this.Seven.Size = new System.Drawing.Size(92, 73);
-            this.Seven.TabIndex = 2;
-            this.Seven.Text = "7";
-            this.Seven.UseVisualStyleBackColor = true;
-            this.Seven.Click += new System.EventHandler(this.Seven_Click);
+            this.seven.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.seven.Location = new System.Drawing.Point(110, 206);
+            this.seven.Name = "seven";
+            this.seven.Size = new System.Drawing.Size(92, 73);
+            this.seven.TabIndex = 2;
+            this.seven.Text = "7";
+            this.seven.UseVisualStyleBackColor = true;
+            this.seven.Click += new System.EventHandler(this.Seven_Click);
             // 
-            // Four
+            // four
             // 
-            this.Four.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Four.Location = new System.Drawing.Point(110, 285);
-            this.Four.Name = "Four";
-            this.Four.Size = new System.Drawing.Size(92, 73);
-            this.Four.TabIndex = 3;
-            this.Four.Text = "4";
-            this.Four.UseVisualStyleBackColor = true;
-            this.Four.Click += new System.EventHandler(this.Four_Click);
+            this.four.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.four.Location = new System.Drawing.Point(110, 285);
+            this.four.Name = "four";
+            this.four.Size = new System.Drawing.Size(92, 73);
+            this.four.TabIndex = 3;
+            this.four.Text = "4";
+            this.four.UseVisualStyleBackColor = true;
+            this.four.Click += new System.EventHandler(this.Four_Click);
             // 
-            // Five
+            // five
             // 
-            this.Five.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Five.Location = new System.Drawing.Point(208, 285);
-            this.Five.Name = "Five";
-            this.Five.Size = new System.Drawing.Size(92, 73);
-            this.Five.TabIndex = 4;
-            this.Five.Text = "5";
-            this.Five.UseVisualStyleBackColor = true;
-            this.Five.Click += new System.EventHandler(this.Five_Click);
+            this.five.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.five.Location = new System.Drawing.Point(208, 285);
+            this.five.Name = "five";
+            this.five.Size = new System.Drawing.Size(92, 73);
+            this.five.TabIndex = 4;
+            this.five.Text = "5";
+            this.five.UseVisualStyleBackColor = true;
+            this.five.Click += new System.EventHandler(this.Five_Click);
             // 
-            // Six
+            // six
             // 
-            this.Six.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Six.Location = new System.Drawing.Point(306, 285);
-            this.Six.Name = "Six";
-            this.Six.Size = new System.Drawing.Size(92, 73);
-            this.Six.TabIndex = 5;
-            this.Six.Text = "6";
-            this.Six.UseVisualStyleBackColor = true;
-            this.Six.Click += new System.EventHandler(this.Six_Click);
+            this.six.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.six.Location = new System.Drawing.Point(306, 285);
+            this.six.Name = "six";
+            this.six.Size = new System.Drawing.Size(92, 73);
+            this.six.TabIndex = 5;
+            this.six.Text = "6";
+            this.six.UseVisualStyleBackColor = true;
+            this.six.Click += new System.EventHandler(this.Six_Click);
             // 
-            // One
+            // one
             // 
-            this.One.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.One.Location = new System.Drawing.Point(110, 364);
-            this.One.Name = "One";
-            this.One.Size = new System.Drawing.Size(92, 73);
-            this.One.TabIndex = 6;
-            this.One.Text = "1";
-            this.One.UseVisualStyleBackColor = true;
-            this.One.Click += new System.EventHandler(this.One_Click);
+            this.one.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.one.Location = new System.Drawing.Point(110, 364);
+            this.one.Name = "one";
+            this.one.Size = new System.Drawing.Size(92, 73);
+            this.one.TabIndex = 6;
+            this.one.Text = "1";
+            this.one.UseVisualStyleBackColor = true;
+            this.one.Click += new System.EventHandler(this.One_Click);
             // 
-            // Two
+            // two
             // 
-            this.Two.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Two.Location = new System.Drawing.Point(208, 364);
-            this.Two.Name = "Two";
-            this.Two.Size = new System.Drawing.Size(92, 73);
-            this.Two.TabIndex = 7;
-            this.Two.Text = "2";
-            this.Two.UseVisualStyleBackColor = true;
-            this.Two.Click += new System.EventHandler(this.Two_Click);
+            this.two.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.two.Location = new System.Drawing.Point(208, 364);
+            this.two.Name = "two";
+            this.two.Size = new System.Drawing.Size(92, 73);
+            this.two.TabIndex = 7;
+            this.two.Text = "2";
+            this.two.UseVisualStyleBackColor = true;
+            this.two.Click += new System.EventHandler(this.Two_Click);
             // 
-            // Three
+            // three
             // 
-            this.Three.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Three.Location = new System.Drawing.Point(306, 364);
-            this.Three.Name = "Three";
-            this.Three.Size = new System.Drawing.Size(92, 73);
-            this.Three.TabIndex = 8;
-            this.Three.Text = "3";
-            this.Three.UseVisualStyleBackColor = true;
-            this.Three.Click += new System.EventHandler(this.Three_Click);
+            this.three.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.three.Location = new System.Drawing.Point(306, 364);
+            this.three.Name = "three";
+            this.three.Size = new System.Drawing.Size(92, 73);
+            this.three.TabIndex = 8;
+            this.three.Text = "3";
+            this.three.UseVisualStyleBackColor = true;
+            this.three.Click += new System.EventHandler(this.Three_Click);
             // 
-            // Multiple
+            // multiple
             // 
-            this.Multiple.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Multiple.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Multiple.Location = new System.Drawing.Point(404, 206);
-            this.Multiple.Name = "Multiple";
-            this.Multiple.Size = new System.Drawing.Size(92, 73);
-            this.Multiple.TabIndex = 9;
-            this.Multiple.Text = "×";
-            this.Multiple.UseVisualStyleBackColor = false;
-            this.Multiple.Click += new System.EventHandler(this.Multiplied_Click);
+            this.multiple.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.multiple.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.multiple.Location = new System.Drawing.Point(404, 206);
+            this.multiple.Name = "multiple";
+            this.multiple.Size = new System.Drawing.Size(92, 73);
+            this.multiple.TabIndex = 9;
+            this.multiple.Text = "×";
+            this.multiple.UseVisualStyleBackColor = false;
+            this.multiple.Click += new System.EventHandler(this.Multiple_Click);
             // 
-            // Point
+            // point
             // 
-            this.Point.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Point.Location = new System.Drawing.Point(306, 443);
-            this.Point.Name = "Point";
-            this.Point.Size = new System.Drawing.Size(92, 73);
-            this.Point.TabIndex = 10;
-            this.Point.Text = ".";
-            this.Point.UseVisualStyleBackColor = true;
-            this.Point.Click += new System.EventHandler(this.Point_Click);
+            this.point.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.point.Location = new System.Drawing.Point(306, 443);
+            this.point.Name = "point";
+            this.point.Size = new System.Drawing.Size(92, 73);
+            this.point.TabIndex = 10;
+            this.point.Text = ".";
+            this.point.UseVisualStyleBackColor = true;
+            this.point.Click += new System.EventHandler(this.Point_Click);
             // 
-            // Zero
+            // zero
             // 
-            this.Zero.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Zero.Location = new System.Drawing.Point(110, 443);
-            this.Zero.Name = "Zero";
-            this.Zero.Size = new System.Drawing.Size(190, 73);
-            this.Zero.TabIndex = 11;
-            this.Zero.Text = "0";
-            this.Zero.UseVisualStyleBackColor = true;
-            this.Zero.Click += new System.EventHandler(this.Zero_Click);
+            this.zero.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.zero.Location = new System.Drawing.Point(110, 443);
+            this.zero.Name = "zero";
+            this.zero.Size = new System.Drawing.Size(190, 73);
+            this.zero.TabIndex = 11;
+            this.zero.Text = "0";
+            this.zero.UseVisualStyleBackColor = true;
+            this.zero.Click += new System.EventHandler(this.Zero_Click);
             // 
-            // Plus
+            // plus
             // 
-            this.Plus.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Plus.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Plus.Location = new System.Drawing.Point(404, 285);
-            this.Plus.Name = "Plus";
-            this.Plus.Size = new System.Drawing.Size(92, 73);
-            this.Plus.TabIndex = 12;
-            this.Plus.Text = "＋";
-            this.Plus.UseVisualStyleBackColor = false;
-            this.Plus.Click += new System.EventHandler(this.Plus_Click);
+            this.plus.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.plus.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.plus.Location = new System.Drawing.Point(404, 285);
+            this.plus.Name = "plus";
+            this.plus.Size = new System.Drawing.Size(92, 73);
+            this.plus.TabIndex = 12;
+            this.plus.Text = "＋";
+            this.plus.UseVisualStyleBackColor = false;
+            this.plus.Click += new System.EventHandler(this.Plus_Click);
             // 
-            // Minus
+            // minus
             // 
-            this.Minus.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Minus.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Minus.Location = new System.Drawing.Point(404, 364);
-            this.Minus.Name = "Minus";
-            this.Minus.Size = new System.Drawing.Size(92, 73);
-            this.Minus.TabIndex = 13;
-            this.Minus.Text = "ー";
-            this.Minus.UseVisualStyleBackColor = false;
-            this.Minus.Click += new System.EventHandler(this.Minus_Click);
+            this.minus.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.minus.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.minus.Location = new System.Drawing.Point(404, 364);
+            this.minus.Name = "minus";
+            this.minus.Size = new System.Drawing.Size(92, 73);
+            this.minus.TabIndex = 13;
+            this.minus.Text = "ー";
+            this.minus.UseVisualStyleBackColor = false;
+            this.minus.Click += new System.EventHandler(this.Minus_Click);
             // 
-            // Equal
+            // equal
             // 
-            this.Equal.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Equal.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Equal.Location = new System.Drawing.Point(404, 443);
-            this.Equal.Name = "Equal";
-            this.Equal.Size = new System.Drawing.Size(92, 73);
-            this.Equal.TabIndex = 14;
-            this.Equal.Text = "＝";
-            this.Equal.UseVisualStyleBackColor = false;
-            this.Equal.Click += new System.EventHandler(this.Equal_Click);
+            this.equal.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.equal.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.equal.Location = new System.Drawing.Point(404, 443);
+            this.equal.Name = "equal";
+            this.equal.Size = new System.Drawing.Size(92, 73);
+            this.equal.TabIndex = 14;
+            this.equal.Text = "＝";
+            this.equal.UseVisualStyleBackColor = false;
+            this.equal.Click += new System.EventHandler(this.Equal_Click);
             // 
-            // Divide
+            // divide
             // 
-            this.Divide.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Divide.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Divide.Location = new System.Drawing.Point(404, 127);
-            this.Divide.Name = "Divide";
-            this.Divide.Size = new System.Drawing.Size(92, 73);
-            this.Divide.TabIndex = 15;
-            this.Divide.Text = "÷";
-            this.Divide.UseVisualStyleBackColor = false;
-            this.Divide.Click += new System.EventHandler(this.Divided_Click);
+            this.divide.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.divide.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.divide.Location = new System.Drawing.Point(404, 127);
+            this.divide.Name = "divide";
+            this.divide.Size = new System.Drawing.Size(92, 73);
+            this.divide.TabIndex = 15;
+            this.divide.Text = "÷";
+            this.divide.UseVisualStyleBackColor = false;
+            this.divide.Click += new System.EventHandler(this.Divide_Click);
             // 
-            // Clear
+            // clear
             // 
-            this.Clear.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Clear.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Clear.Location = new System.Drawing.Point(110, 127);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(175, 73);
-            this.Clear.TabIndex = 16;
-            this.Clear.Text = "AC";
-            this.Clear.UseVisualStyleBackColor = false;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            this.clear.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.clear.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.clear.Location = new System.Drawing.Point(110, 127);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(175, 73);
+            this.clear.TabIndex = 16;
+            this.clear.Text = "AC";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // display
             // 
@@ -254,42 +254,42 @@
             this.display.Text = "0";
             this.display.TextChanged += new System.EventHandler(this.display_TextChanged);
             // 
-            // Sign
+            // sign
             // 
-            this.Sign.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Sign.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Sign.Location = new System.Drawing.Point(291, 127);
-            this.Sign.Name = "Sign";
-            this.Sign.Size = new System.Drawing.Size(107, 73);
-            this.Sign.TabIndex = 18;
-            this.Sign.Text = "+/-";
-            this.Sign.UseVisualStyleBackColor = false;
-            this.Sign.Click += new System.EventHandler(this.Sign_Click);
+            this.sign.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.sign.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.sign.Location = new System.Drawing.Point(291, 127);
+            this.sign.Name = "sign";
+            this.sign.Size = new System.Drawing.Size(107, 73);
+            this.sign.TabIndex = 18;
+            this.sign.Text = "+/-";
+            this.sign.UseVisualStyleBackColor = false;
+            this.sign.Click += new System.EventHandler(this.Sign_Click);
             // 
             // caluculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 641);
-            this.Controls.Add(this.Sign);
+            this.ClientSize = new System.Drawing.Size(601, 601);
+            this.Controls.Add(this.sign);
             this.Controls.Add(this.display);
-            this.Controls.Add(this.Clear);
-            this.Controls.Add(this.Divide);
-            this.Controls.Add(this.Equal);
-            this.Controls.Add(this.Minus);
-            this.Controls.Add(this.Plus);
-            this.Controls.Add(this.Zero);
-            this.Controls.Add(this.Point);
-            this.Controls.Add(this.Multiple);
-            this.Controls.Add(this.Three);
-            this.Controls.Add(this.Two);
-            this.Controls.Add(this.One);
-            this.Controls.Add(this.Six);
-            this.Controls.Add(this.Five);
-            this.Controls.Add(this.Four);
-            this.Controls.Add(this.Seven);
-            this.Controls.Add(this.Eight);
-            this.Controls.Add(this.Nine);
+            this.Controls.Add(this.clear);
+            this.Controls.Add(this.divide);
+            this.Controls.Add(this.equal);
+            this.Controls.Add(this.minus);
+            this.Controls.Add(this.plus);
+            this.Controls.Add(this.zero);
+            this.Controls.Add(this.point);
+            this.Controls.Add(this.multiple);
+            this.Controls.Add(this.three);
+            this.Controls.Add(this.two);
+            this.Controls.Add(this.one);
+            this.Controls.Add(this.six);
+            this.Controls.Add(this.five);
+            this.Controls.Add(this.four);
+            this.Controls.Add(this.seven);
+            this.Controls.Add(this.eight);
+            this.Controls.Add(this.nine);
             this.Name = "caluculator";
             this.Text = "計算機";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -300,25 +300,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Nine;
-        private System.Windows.Forms.Button Eight;
-        private System.Windows.Forms.Button Seven;
-        private System.Windows.Forms.Button Four;
-        private System.Windows.Forms.Button Five;
-        private System.Windows.Forms.Button Six;
-        private System.Windows.Forms.Button One;
-        private System.Windows.Forms.Button Two;
-        private System.Windows.Forms.Button Three;
-        private System.Windows.Forms.Button Multiple;
-        private System.Windows.Forms.Button Point;
-        private System.Windows.Forms.Button Zero;
-        private System.Windows.Forms.Button Plus;
-        private System.Windows.Forms.Button Minus;
-        private System.Windows.Forms.Button Equal;
-        private System.Windows.Forms.Button Divide;
-        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button nine;
+        private System.Windows.Forms.Button eight;
+        private System.Windows.Forms.Button seven;
+        private System.Windows.Forms.Button four;
+        private System.Windows.Forms.Button five;
+        private System.Windows.Forms.Button six;
+        private System.Windows.Forms.Button one;
+        private System.Windows.Forms.Button two;
+        private System.Windows.Forms.Button three;
+        private System.Windows.Forms.Button multiple;
+        private System.Windows.Forms.Button point;
+        private System.Windows.Forms.Button zero;
+        private System.Windows.Forms.Button plus;
+        private System.Windows.Forms.Button minus;
+        private System.Windows.Forms.Button equal;
+        private System.Windows.Forms.Button divide;
+        private System.Windows.Forms.Button clear;
         private System.Windows.Forms.TextBox display;
-        private System.Windows.Forms.Button Sign;
+        private System.Windows.Forms.Button sign;
     }
 }
 

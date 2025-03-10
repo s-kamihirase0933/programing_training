@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -32,232 +33,82 @@ namespace calculator_KS
         private bool TextBox_overwrite = true;  //テキストボックスの上書きをする場合はtrue
         private void Zero_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Zero.Text;
-                TextBox_overwrite = false;
-                if(display.Text == "0")
-                {
-                    TextBox_overwrite = true;
-                }
-            }
-            else
-            {
-                display.Text += Zero.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(zero.Text);
         }
 
         private void One_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = One.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += One.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(one.Text);
         }
 
         private void Two_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Two.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Two.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(two.Text);
         }
 
         private void Three_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Three.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Three.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(three.Text);
         }
 
         private void Four_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Four.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Four.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(four.Text);
         }
 
         private void Five_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Five.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Five.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(five.Text);
         }
 
         private void Six_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Six.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Six.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(six.Text);
         }
 
         private void Seven_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Seven.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Seven.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(seven.Text);
         }
 
         private void Eight_Click(object sender, EventArgs e)
         {
-            if (TextBox_overwrite == true)
-            {
-                display.Text = Eight.Text;
-                TextBox_overwrite = false;
-                Clear.Text = "C";
-            }
-            else
-            {
-                display.Text += Eight.Text;
-            }
-            BtnColorChange("PLUS", "DEFAULT");
-            BtnColorChange("MINUS", "DEFAULT");
-            BtnColorChange("MULTIPLE", "DEFAULT");
-            BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            Number_Click(eight.Text);
         }
 
         private void Nine_Click(object sender, EventArgs e)
         {
+            Number_Click(nine.Text);
+        }
+
+        private void Point_Click(object sender, EventArgs e)
+        {
+            display.Text += point.Text;
+            TextBox_overwrite = false;
+        }
+
+        private void Number_Click(String number)
+        {
             if (TextBox_overwrite == true)
             {
-                display.Text = Nine.Text;
+                display.Text = number;
                 TextBox_overwrite = false;
-                Clear.Text = "C";
+                clear.Text = "C";
             }
             else
             {
-                display.Text += Nine.Text;
+                display.Text += number;
             }
             BtnColorChange("PLUS", "DEFAULT");
             BtnColorChange("MINUS", "DEFAULT");
             BtnColorChange("MULTIPLE", "DEFAULT");
             BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled     = true;
-            Minus.Enabled    = true;
-            Multiple.Enabled = true;
-            Divide.Enabled   = true;
+            plus.Enabled = true;
+            minus.Enabled = true;
+            multiple.Enabled = true;
+            divide.Enabled = true;
         }
 
-        private void Point_Click(object sender, EventArgs e)
-        {
-            display.Text += Point.Text;
-            TextBox_overwrite = false;
-        }
 
         /*
          * 
@@ -311,7 +162,7 @@ namespace calculator_KS
                     break;
             }
             
-            display.Text = dNum_Pool.ToString();
+            display.Text = Math.Round(dNum_Pool,8, MidpointRounding.AwayFromZero).ToString();
         }
 
         /*
@@ -322,71 +173,77 @@ namespace calculator_KS
         private int numCnt = 0;   //テキストボックスの数値のみカウント
         private void Plus_Click(object sender, EventArgs e)        //"+"クリック時
         {
-            TextBox_overwrite = true;
-            Num_Pool();
-            mType = MarksType.PLUS;
-            BtnColorChange("PLUS", "ACTIVE");
-            Minus.Enabled    = false;
-            Multiple.Enabled = false;
-            Divide.Enabled   = false;
-
+            Operator_Click(plus.Text);
         }
         private void Minus_Click(object sender, EventArgs e)       //"-"クリック時
         {
-            TextBox_overwrite = true;
-            Num_Pool();
-            mType = MarksType.MINUS;
-            BtnColorChange("MINUS", "ACTIVE");
-            Plus.Enabled     = false;
-            Multiple.Enabled = false;
-            Divide.Enabled   = false;
-
+            Operator_Click(minus.Text);
         }
-        private void Multiplied_Click(object sender, EventArgs e)  //"×"クリック時
+        private void Multiple_Click(object sender, EventArgs e)  //"×"クリック時
         {
-            TextBox_overwrite = true;
-            Num_Pool();
-            mType = MarksType.MULTIPLIED;
-            BtnColorChange("MULTIPLE", "ACTIVE");
-            Minus.Enabled    = false;
-            Plus.Enabled     = false;
-            Divide.Enabled   = false;
-
+            Operator_Click(multiple.Text);
         }
-        private void Divided_Click(object sender, EventArgs e)     //"÷"クリック時
+        private void Divide_Click(object sender, EventArgs e)     //"÷"クリック時
         {
-            TextBox_overwrite = true;
-            Num_Pool();
-            mType = MarksType.DIVIDED;
-            BtnColorChange("DIVIDE", "ACTIVE");
-            Minus.Enabled    = false;
-            Multiple.Enabled = false;
-            Plus.Enabled     = false;
-
+            Operator_Click(divide.Text);
         }
-
         private void Equal_Click(object sender, EventArgs e)
         {
+            Operator_Click(equal.Text);
+        }
+        private void Operator_Click(String ope)
+        {
             TextBox_overwrite = true;
             Num_Pool();
-            mType = MarksType.NON;
+            switch (ope){
+                case "+":
+                    mType = MarksType.PLUS;
+                    BtnColorChange("PLUS", "ACTIVE");
+                    minus.Enabled = false;
+                    multiple.Enabled = false;
+                    divide.Enabled = false;
+                    break;
+                case "-":
+                    mType = MarksType.MINUS;
+                    BtnColorChange("MINUS", "ACTIVE");
+                    plus.Enabled = false;
+                    multiple.Enabled = false;
+                    divide.Enabled = false;
+                    break;
+                case "×":
+                    mType = MarksType.MULTIPLIED;
+                    BtnColorChange("MULTIPLE", "ACTIVE");
+                    minus.Enabled = false;
+                    plus.Enabled = false;
+                    divide.Enabled = false;
+                    break;
+                case "÷":
+                    mType = MarksType.DIVIDED;
+                    BtnColorChange("DIVIDE", "ACTIVE");
+                    minus.Enabled = false;
+                    multiple.Enabled = false;
+                    plus.Enabled = false;
+                    break;
+                case "=":
+                    mType = MarksType.NON;
+                    break;
+            }   
         }
-
         /*
          * 
          * クリアボタンクリックイベント
          * 
          */
 
-        private void Clear_Click(object sender, EventArgs e)//本メソッド製造中にエラー
+        private void Clear_Click(object sender, EventArgs e)
         {
-            if(Clear.Text == "C")
+            if(clear.Text == "C")
             {
                 TextBox_overwrite = true;
                 display.Text = "0";
-                Clear.Text = "AC";
+                clear.Text = "AC";
             }
-            else if(Clear.Text == "AC")
+            else if(clear.Text == "AC")
             {
                 TextBox_overwrite = true;
                 display.Text = "0";
@@ -398,10 +255,10 @@ namespace calculator_KS
             BtnColorChange("MINUS", "DEFAULT");
             BtnColorChange("MULTIPLE", "DEFAULT");
             BtnColorChange("DIVIDE", "DEFAULT");
-            Plus.Enabled = true;
-            Minus.Enabled = true;
-            Multiple.Enabled = true;
-            Divide.Enabled = true;
+            plus.Enabled = true;
+            minus.Enabled = true;
+            multiple.Enabled = true;
+            divide.Enabled = true;
 
         }
 
@@ -429,10 +286,13 @@ namespace calculator_KS
 
         private void display_TextChanged(object sender, EventArgs e)
         {
-            if(display.Text.Length > 13)
+            if (NumCheck(display.Text) == true)
             {
-                Error("digit");
-                BtnActivation(false);
+                if (display.Text.Length > 13)
+                {
+                    Error("digit");
+                    BtnActivation(false);
+                }
             }
 
 
@@ -450,7 +310,7 @@ namespace calculator_KS
          */
         private void Error(String errorType)
         {
-            String ErrorMsg = "Error\nクリアしてください";
+            String ErrorMsg = "Errorクリアしてください";
 
             if(errorType.Equals("formula"))
             {
@@ -462,7 +322,7 @@ namespace calculator_KS
             }
 
             display.Text = ErrorMsg;
-            Clear.Text = "AC";
+            clear.Text = "AC";
             return;
         }
 
@@ -485,43 +345,43 @@ namespace calculator_KS
             {
                 case "PLUS":
                     if(BtnParam.Equals("ACTIVE")){
-                        Plus.BackColor = Color.FromArgb(55, 203, 255);
+                        plus.BackColor = Color.FromArgb(55, 203, 255);
                     }else if (BtnParam.Equals("DEFAULT"))
                     {
-                        Plus.BackColor = Color.FromArgb(185, 209, 234);
+                        plus.BackColor = Color.FromArgb(185, 209, 234);
                     }
                     break;
 
                 case "MINUS":
                     if (BtnParam.Equals("ACTIVE"))
                     {
-                        Minus.BackColor = Color.FromArgb(55, 203, 255);
+                        minus.BackColor = Color.FromArgb(55, 203, 255);
                     }
                     else if (BtnParam.Equals("DEFAULT"))
                     {
-                        Minus.BackColor = Color.FromArgb(185, 209, 234);
+                        minus.BackColor = Color.FromArgb(185, 209, 234);
                     }
                     break;
 
                 case "DIVIDE":
                     if (BtnParam.Equals("ACTIVE"))
                     {
-                        Divide.BackColor = Color.FromArgb(55, 203, 255);
+                        divide.BackColor = Color.FromArgb(55, 203, 255);
                     }
                     else if (BtnParam.Equals("DEFAULT"))
                     {
-                        Divide.BackColor = Color.FromArgb(185, 209, 234);
+                        divide.BackColor = Color.FromArgb(185, 209, 234);
                     }
                     break;
 
                 case "MULTIPLE":
                     if (BtnParam.Equals("ACTIVE"))
                     {
-                        Multiple.BackColor = Color.FromArgb(55, 203, 255);
+                        multiple.BackColor = Color.FromArgb(55, 203, 255);
                     }
                     else if (BtnParam.Equals("DEFAULT"))
                     {
-                        Multiple.BackColor = Color.FromArgb(185, 209, 234);
+                        multiple.BackColor = Color.FromArgb(185, 209, 234);
                     }
                     break;
 
@@ -538,46 +398,65 @@ namespace calculator_KS
         {
             if(btnSwitch == true)
             {
-                Zero.Enabled      = true;
-                One.Enabled       = true;
-                Two.Enabled       = true;
-                Three.Enabled     = true;
-                Four.Enabled      = true;
-                Five.Enabled      = true;
-                Six.Enabled       = true;
-                Seven.Enabled     = true;
-                Eight.Enabled     = true;
-                Nine.Enabled      = true;
-                Plus.Enabled      = true;
-                Minus.Enabled     = true;
-                Multiple.Enabled  = true;
-                Divide.Enabled    = true;
-                Point.Enabled     = true;
-                Sign.Enabled      = true;
-                Equal.Enabled     = true;
+                zero.Enabled      = true;
+                one.Enabled       = true;
+                two.Enabled       = true;
+                three.Enabled     = true;
+                four.Enabled      = true;
+                five.Enabled      = true;
+                six.Enabled       = true;
+                seven.Enabled     = true;
+                eight.Enabled     = true;
+                nine.Enabled      = true;
+                plus.Enabled      = true;
+                minus.Enabled     = true;
+                multiple.Enabled  = true;
+                divide.Enabled    = true;
+                point.Enabled     = true;
+                sign.Enabled      = true;
+                equal.Enabled     = true;
 
             }
             else if(btnSwitch == false)
             {
-                Zero.Enabled      = false;
-                One.Enabled       = false;
-                Two.Enabled       = false;
-                Three.Enabled     = false;
-                Four.Enabled      = false;
-                Five.Enabled      = false;
-                Six.Enabled       = false;
-                Seven.Enabled     = false;
-                Eight.Enabled     = false;
-                Nine.Enabled      = false;
-                Plus.Enabled      = false;
-                Minus.Enabled     = false;
-                Multiple.Enabled = false;
-                Divide.Enabled    = false;
-                Point.Enabled     = false;
-                Sign.Enabled      = false;
-                Equal.Enabled     = false;
+                zero.Enabled      = false;
+                one.Enabled       = false;
+                two.Enabled       = false;
+                three.Enabled     = false;
+                four.Enabled      = false;
+                five.Enabled      = false;
+                six.Enabled       = false;
+                seven.Enabled     = false;
+                eight.Enabled     = false;
+                nine.Enabled      = false;
+                plus.Enabled      = false;
+                minus.Enabled     = false;
+                multiple.Enabled = false;
+                divide.Enabled    = false;
+                point.Enabled     = false;
+                sign.Enabled      = false;
+                equal.Enabled     = false;
             }
         }
-          
+
+        /*
+         * 
+         * 数値 or 文字列チェック
+         * 
+         */
+        private bool NumCheck(String chkText)
+        {
+            bool chkResult = true;
+            try
+            {
+                double.Parse(display.Text);
+            }
+            catch(Exception e)
+            {
+                chkResult = false;
+            }
+            return chkResult;
+        }
+
     }
 }
