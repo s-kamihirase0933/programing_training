@@ -86,12 +86,21 @@ namespace calculator_KS
 
         private void Point_Click(object sender, EventArgs e)
         {
+            if (txtDisplay.Text.Contains("."))
+            {
+                return;
+            }
             txtDisplay.Text += btnPoint.Text;
             TextBox_overwrite = false;
         }
 
         private void Number_Click(String number)
         {
+            if(txtDisplay.Text.Length >= 13)
+            {
+                return;
+            }
+
             if (TextBox_overwrite == true)
             {
                 txtDisplay.Text = number;
@@ -157,12 +166,6 @@ namespace calculator_KS
                     break;
                 case MarksType.DIVIDED:     //÷
                     dNum_Pool /= dNum;
-                    //割り算結果が桁数上限を超える場合、小数点以下切り捨て
-                    String dNum_PoolStr = dNum_Pool.ToString();
-                    if (dNum_PoolStr.Length > 13)
-                    {
-                        dNum_Pool = Math.Truncate(dNum_Pool);
-                    }
 
                     if (dNum == 0)
                     {
@@ -173,7 +176,7 @@ namespace calculator_KS
                     break;
             }
 
-            txtDisplay.Text = Math.Round(dNum_Pool, 8, MidpointRounding.AwayFromZero).ToString();
+            txtDisplay.Text = RoundToTotalDigits(dNum_Pool,11).ToString();
         }
 
         /*
@@ -524,6 +527,23 @@ namespace calculator_KS
                 chkResult = false;
             }
             return chkResult;
+        }
+
+        /*
+         * 
+         * 計算結果を四捨五入
+         * 
+         */
+        public static double RoundToTotalDigits(double num, int totalDigits)
+        {
+            if (num == 0)
+                return 0;
+
+            int integerDigits = (int)Math.Floor(Math.Log10(Math.Abs(num))) + 1;
+
+            int decimalDigits = Math.Max(0, totalDigits - integerDigits);
+
+            return Math.Round(num, decimalDigits, MidpointRounding.AwayFromZero);
         }
 
     }
