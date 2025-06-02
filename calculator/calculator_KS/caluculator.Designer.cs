@@ -252,7 +252,6 @@
             this.txtDisplay.Size = new System.Drawing.Size(386, 47);
             this.txtDisplay.TabIndex = 1;
             this.txtDisplay.Text = "0";
-            this.txtDisplay.TextChanged += new System.EventHandler(this.txtDisplay_TextChanged);
             // 
             // btnSign
             // 

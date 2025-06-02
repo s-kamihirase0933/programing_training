@@ -90,16 +90,18 @@ namespace calculator_KS
             {
                 return;
             }
+            else if (txtDisplay.Text.Length >= 13)
+            {
+                return;
+            }
+                
             txtDisplay.Text += btnPoint.Text;
             TextBox_overwrite = false;
         }
 
         private void Number_Click(String number)
         {
-            if(txtDisplay.Text.Length >= 13)
-            {
-                return;
-            }
+            
 
             if (TextBox_overwrite == true)
             {
@@ -109,6 +111,10 @@ namespace calculator_KS
             }
             else
             {
+                if (txtDisplay.Text.Length >= 13)
+                {
+                    return;
+                }
                 txtDisplay.Text += number;
             }
             BtnColorChange("PLUS", "DEFAULT");
@@ -139,7 +145,7 @@ namespace calculator_KS
         }
         private MarksType mType = MarksType.NON;
 
-        private void Num_Pool()
+        private bool Num_Pool()
         {
             try
             {
@@ -165,18 +171,27 @@ namespace calculator_KS
                     dNum_Pool *= dNum;
                     break;
                 case MarksType.DIVIDED:     //÷
-                    dNum_Pool /= dNum;
-
                     if (dNum == 0)
                     {
                         dNum_Pool = 0;
                         Error("formula");
-                        return;
+                        
+                        return false;
                     }
+                    dNum_Pool /= dNum;
                     break;
             }
+            double rounded = RoundToTotalDigits(dNum_Pool, 11);
+            String result =rounded.ToString();
+            int digitOnlyLength = result.Replace(".", "").Replace("-", "").Replace("E", "").Replace("+", "").Length;
+            if(digitOnlyLength > 13)
+            {
+                Error("digit");
+                return false;
+            }
 
-            txtDisplay.Text = RoundToTotalDigits(dNum_Pool,11).ToString();
+            txtDisplay.Text = result;
+            return true;
         }
 
         /*
@@ -246,8 +261,11 @@ namespace calculator_KS
         private void Operator_Click(string ope)
         {
             TextBox_overwrite = true;
-            Num_Pool();
 
+            if (!Num_Pool())
+            {
+                return;
+            }
             if (ope == "=")
             {
                 mType = MarksType.NON;
@@ -319,6 +337,7 @@ namespace calculator_KS
                 dNum_Pool = 0;
                 mType = MarksType.NON;
                 txtDisplay.Text = "0";
+                BtnActivation(true);
 
             }
             BtnColorChange("PLUS", "DEFAULT");
@@ -340,6 +359,9 @@ namespace calculator_KS
         private void Sign_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                return;
+            }else if (txtDisplay.Text.Length >= 13)
             {
                 return;
             }
@@ -389,7 +411,7 @@ namespace calculator_KS
             {
                 ErrorMsg = "桁数上限" + ErrorMsg;
             }
-
+            BtnActivation(false);
             txtDisplay.Text = ErrorMsg;
             btnClear.Text = "AC";
             return;
@@ -534,16 +556,13 @@ namespace calculator_KS
          * 計算結果を四捨五入
          * 
          */
-        public static double RoundToTotalDigits(double num, int totalDigits)
+        public static double RoundToTotalDigits(double num, int digits)
         {
             if (num == 0)
                 return 0;
 
-            int integerDigits = (int)Math.Floor(Math.Log10(Math.Abs(num))) + 1;
-
-            int decimalDigits = Math.Max(0, totalDigits - integerDigits);
-
-            return Math.Round(num, decimalDigits, MidpointRounding.AwayFromZero);
+            double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(num))) - digits + 1);
+            return Math.Round(num / scale) * scale;
         }
 
     }
