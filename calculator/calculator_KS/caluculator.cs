@@ -94,14 +94,14 @@ namespace calculator_KS
             {
                 return;
             }
-                
+
             txtDisplay.Text += btnPoint.Text;
             TextBox_overwrite = false;
         }
 
         private void Number_Click(String number)
         {
-            
+
 
             if (TextBox_overwrite == true)
             {
@@ -133,8 +133,8 @@ namespace calculator_KS
          * 結果をプールするメソッド
          * 
          */
-        private double dNum;       //ラベルをdouble型に格納する変数
-        private double dNum_Pool;  //ラベルの数字をプール
+        private decimal dNum;       //ラベルをdouble型に格納する変数
+        private decimal dNum_Pool;  //ラベルの数字をプール
         private enum MarksType     //列挙子
         {
             NON,
@@ -149,42 +149,59 @@ namespace calculator_KS
         {
             try
             {
-                dNum = double.Parse(txtDisplay.Text);
+                dNum = decimal.Parse(txtDisplay.Text);
             }
-            catch (Exception ex)
+            catch
             {
                 Error("others");
+                return false;
             }
 
             switch (mType)
             {
-                case MarksType.NON:         //=
+                case MarksType.NON:
                     dNum_Pool = dNum;
                     break;
-                case MarksType.PLUS:        //+
+                case MarksType.PLUS:
                     dNum_Pool += dNum;
                     break;
-                case MarksType.MINUS:       //-
+                case MarksType.MINUS:
                     dNum_Pool -= dNum;
                     break;
-                case MarksType.MULTIPLIED:  //×
+                case MarksType.MULTIPLIED:
                     dNum_Pool *= dNum;
                     break;
-                case MarksType.DIVIDED:     //÷
+                case MarksType.DIVIDED:
                     if (dNum == 0)
                     {
-                        dNum_Pool = 0;
                         Error("formula");
-                        
                         return false;
                     }
                     dNum_Pool /= dNum;
                     break;
             }
-            double rounded = RoundToTotalDigits(dNum_Pool, 11);
-            String result =rounded.ToString();
-            int digitOnlyLength = result.Replace(".", "").Replace("-", "").Replace("E", "").Replace("+", "").Length;
-            if(digitOnlyLength > 13)
+
+            decimal rounded = RoundToSignificantDigits(dNum_Pool, 13);
+            string result;
+
+            if (Math.Abs(rounded) < 0.01m || Math.Abs(rounded) >= 1_000_000_000_000m)
+            {
+                result = ((double)rounded).ToString("0.0000000000E+0");
+            }
+            else
+            {
+                result = (Math.Round(rounded,12,MidpointRounding.AwayFromZero)).ToString("G13");
+            }
+
+            // 有効数字で13桁以内かどうかを判定（指数表記含め）
+            int digitCount = result
+                .Replace(".", "")
+                .Replace("-", "")
+                .Replace("+", "")
+                .Replace("E", "")
+                .Length;
+
+            if (digitCount > 13)
             {
                 Error("digit");
                 return false;
@@ -556,14 +573,17 @@ namespace calculator_KS
          * 計算結果を四捨五入
          * 
          */
-        public static double RoundToTotalDigits(double num, int digits)
+        public static decimal RoundToSignificantDigits(decimal num, int digits)
         {
             if (num == 0)
                 return 0;
 
-            double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(num))) - digits + 1);
-            return Math.Round(num / scale) * scale;
+            int digitPos = (int)Math.Floor(Math.Log10((double)Math.Abs(num))) - digits + 1;
+            decimal scale = (decimal)Math.Pow(10, digitPos);
+            return Math.Round(num / scale, 0, MidpointRounding.AwayFromZero) * scale;
         }
 
     }
+
 }
+
