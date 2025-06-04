@@ -145,7 +145,7 @@ namespace calculator_KS
         }
         private MarksType mType = MarksType.NON;
 
-        private bool Num_Pool()
+        private (bool success, string result) Num_Pool()
         {
             try
             {
@@ -154,7 +154,7 @@ namespace calculator_KS
             catch
             {
                 Error("others");
-                return false;
+                return (false, null);
             }
 
             switch (mType)
@@ -175,41 +175,39 @@ namespace calculator_KS
                     if (dNum == 0)
                     {
                         Error("formula");
-                        return false;
+                        return (false, null);
                     }
                     dNum_Pool /= dNum;
                     break;
             }
 
             decimal rounded = RoundToSignificantDigits(dNum_Pool, 13);
-            string result;
 
-            if (Math.Abs(rounded) < 0.01m || Math.Abs(rounded) >= 1_000_000_000_000m)
+            string result;
+            if (Math.Abs(rounded) >= 1_000_000_000_000m)
             {
-                result = ((double)rounded).ToString("0.0000000000E+0");
+                result = rounded.ToString("0"); 
+            }
+            else if (Math.Abs(rounded) < 0.01m)
+            {
+                result = ((double)rounded).ToString("0.#####E+0"); 
             }
             else
             {
-                result = (Math.Round(rounded,12,MidpointRounding.AwayFromZero)).ToString("G13");
+                result = Math.Round(rounded, 12, MidpointRounding.AwayFromZero).ToString("G13");
             }
 
-            // 有効数字で13桁以内かどうかを判定（指数表記含め）
-            int digitCount = result
-                .Replace(".", "")
-                .Replace("-", "")
-                .Replace("+", "")
-                .Replace("E", "")
-                .Length;
+            int digitCount = result.Replace(".", "").Replace("-", "").Replace("+", "").Replace("E", "").Length;
 
             if (digitCount > 13)
             {
                 Error("digit");
-                return false;
+                return (false, null);
             }
 
-            txtDisplay.Text = result;
-            return true;
+            return (true, result);
         }
+
 
         /*
          * 
@@ -279,17 +277,22 @@ namespace calculator_KS
         {
             TextBox_overwrite = true;
 
-            if (!Num_Pool())
+            var (success, result) = Num_Pool();
+            if (!success)
             {
                 return;
             }
+
+            // 「=」のときだけ表示更新する
             if (ope == "=")
             {
+                txtDisplay.Text = result;
                 mType = MarksType.NON;
                 ResetOperatorButtonState();
                 return;
             }
 
+            // その他の演算子のときは、状態だけ更新して表示はそのまま
             if (OperatorMap.TryGetValue(ope, out MarksType newType))
             {
                 mType = newType;
@@ -297,6 +300,7 @@ namespace calculator_KS
                 DisableOtherOperatorButtons(newType);
             }
         }
+
 
         //演算子ボタン状態制御
         private void HighlightOperatorButton(MarksType activeType)
