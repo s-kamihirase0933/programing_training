@@ -31,10 +31,10 @@ namespace taskManagemetApp.src
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -47,6 +47,12 @@ namespace taskManagemetApp.src
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tblTaskList = new System.Windows.Forms.DataGridView();
+            this.taskType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClear = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.column = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -57,12 +63,6 @@ namespace taskManagemetApp.src
             this.lblCurrentPage = new System.Windows.Forms.Label();
             this.btnNextPage = new System.Windows.Forms.Button();
             this.btnBackPage = new System.Windows.Forms.Button();
-            this.taskType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblTaskList)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +95,6 @@ namespace taskManagemetApp.src
             this.label1.TabIndex = 3;
             this.label1.Text = "タスク名：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // label3
             // 
@@ -179,7 +178,6 @@ namespace taskManagemetApp.src
             this.button1.TabIndex = 14;
             this.button1.Text = "検索";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tblTaskList
             // 
@@ -187,14 +185,14 @@ namespace taskManagemetApp.src
             this.tblTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tblTaskList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tblTaskList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tblTaskList.ColumnHeadersHeight = 40;
             this.tblTaskList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.taskType,
@@ -207,14 +205,14 @@ namespace taskManagemetApp.src
             this.tblTaskList.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.tblTaskList.Location = new System.Drawing.Point(33, 187);
             this.tblTaskList.Name = "tblTaskList";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.tblTaskList.RowHeadersVisible = false;
             this.tblTaskList.RowHeadersWidth = 4;
             this.tblTaskList.RowTemplate.Height = 27;
@@ -222,6 +220,60 @@ namespace taskManagemetApp.src
             this.tblTaskList.Size = new System.Drawing.Size(1653, 587);
             this.tblTaskList.TabIndex = 15;
             this.tblTaskList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblList_CellContentClick);
+            // 
+            // taskType
+            // 
+            this.taskType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.taskType.FillWeight = 70F;
+            this.taskType.HeaderText = "分類";
+            this.taskType.MinimumWidth = 8;
+            this.taskType.Name = "taskType";
+            this.taskType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // taskStatus
+            // 
+            this.taskStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.taskStatus.FillWeight = 50F;
+            this.taskStatus.HeaderText = "タスク状況";
+            this.taskStatus.MinimumWidth = 8;
+            this.taskStatus.Name = "taskStatus";
+            this.taskStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // taskName
+            // 
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.taskName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.taskName.HeaderText = "タスク名";
+            this.taskName.MinimumWidth = 8;
+            this.taskName.Name = "taskName";
+            this.taskName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // taskProgress
+            // 
+            this.taskProgress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.taskProgress.FillWeight = 66F;
+            this.taskProgress.HeaderText = "進捗";
+            this.taskProgress.MinimumWidth = 8;
+            this.taskProgress.Name = "taskProgress";
+            this.taskProgress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // taskStart
+            // 
+            this.taskStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.taskStart.FillWeight = 80F;
+            this.taskStart.HeaderText = "タスク開始日";
+            this.taskStart.MinimumWidth = 8;
+            this.taskStart.Name = "taskStart";
+            this.taskStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // taskFinish
+            // 
+            this.taskFinish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.taskFinish.FillWeight = 80F;
+            this.taskFinish.HeaderText = "タスク完了日";
+            this.taskFinish.MinimumWidth = 8;
+            this.taskFinish.Name = "taskFinish";
+            this.taskFinish.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // btnClear
             // 
@@ -289,7 +341,6 @@ namespace taskManagemetApp.src
             this.lblCurrentPage.Size = new System.Drawing.Size(216, 39);
             this.lblCurrentPage.TabIndex = 23;
             this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCurrentPage.Click += new System.EventHandler(this.label7_Click);
             // 
             // btnNextPage
             // 
@@ -310,60 +361,6 @@ namespace taskManagemetApp.src
             this.btnBackPage.Text = "Back";
             this.btnBackPage.UseVisualStyleBackColor = true;
             this.btnBackPage.Click += new System.EventHandler(this.btnBackPage_Click);
-            // 
-            // taskType
-            // 
-            this.taskType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.taskType.FillWeight = 70F;
-            this.taskType.HeaderText = "分類";
-            this.taskType.MinimumWidth = 8;
-            this.taskType.Name = "taskType";
-            this.taskType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // taskStatus
-            // 
-            this.taskStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.taskStatus.FillWeight = 50F;
-            this.taskStatus.HeaderText = "タスク状況";
-            this.taskStatus.MinimumWidth = 8;
-            this.taskStatus.Name = "taskStatus";
-            this.taskStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // taskName
-            // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.taskName.DefaultCellStyle = dataGridViewCellStyle5;
-            this.taskName.HeaderText = "タスク名";
-            this.taskName.MinimumWidth = 8;
-            this.taskName.Name = "taskName";
-            this.taskName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // taskProgress
-            // 
-            this.taskProgress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.taskProgress.FillWeight = 66F;
-            this.taskProgress.HeaderText = "進捗";
-            this.taskProgress.MinimumWidth = 8;
-            this.taskProgress.Name = "taskProgress";
-            this.taskProgress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // taskStart
-            // 
-            this.taskStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.taskStart.FillWeight = 80F;
-            this.taskStart.HeaderText = "タスク開始日";
-            this.taskStart.MinimumWidth = 8;
-            this.taskStart.Name = "taskStart";
-            this.taskStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // taskFinish
-            // 
-            this.taskFinish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.taskFinish.FillWeight = 80F;
-            this.taskFinish.HeaderText = "タスク完了日";
-            this.taskFinish.MinimumWidth = 8;
-            this.taskFinish.Name = "taskFinish";
-            this.taskFinish.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // button3
             // 
@@ -410,7 +407,6 @@ namespace taskManagemetApp.src
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formHome";
             this.Text = "taskManager - ホーム";
-            this.Load += new System.EventHandler(this.formHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblTaskList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
