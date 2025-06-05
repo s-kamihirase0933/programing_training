@@ -98,6 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\LoginSession.cs" />
+    <Compile Include="src\DbConfig.cs" />
     <Compile Include="src\DatabaseHelper.cs" />
     <Compile Include="src\formTaskEdit.cs">
       <SubType>Form</SubType>
@@ -159,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resourse\todomanager.ico" />
+    <Content Include="xml\connection.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
@@ -15,30 +16,53 @@ public class DatabaseHelper
     // データ変更（INSERT, UPDATE, DELETE）用
     public void ExecuteIUDQuery(string query)
     {
-        using (MySqlConnection conn = new MySqlConnection(_connectionString))
+        try
         {
-            conn.Open();
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
-                cmd.ExecuteNonQuery();
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
     }
 
     // データ取得（SELECT）用
-    public DataTable ExecuteSelectQuery(string query)
+    public DataTable ExecuteSelectQuery(string query, Dictionary<string, object> parameters)
     {
-        using (MySqlConnection conn = new MySqlConnection(_connectionString))
+        try
         {
-            conn.Open();
+            DataTable dataTable = new DataTable();
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
-            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
             {
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                // パラメータを追加
+                foreach (var param in parameters)
+                {
+                    cmd.Parameters.AddWithValue(param.Key, param.Value);
+                }
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                return dataTable;
             }
         }
+        catch(Exception ex)
+        {
+            return null;
+            Console.WriteLine(ex.Message);
+        }
+        
+        
     }
 
 }

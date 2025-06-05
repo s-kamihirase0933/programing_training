@@ -14,11 +14,11 @@ namespace taskManagemetApp
 {
     public partial class form : Form
     {
+
         public form()
         {
             InitializeComponent();
         }
-        private String test = "";
         private void btnLogin_Click(object sender, EventArgs e)
         {
             String userId   = txtUserName.Text;
@@ -31,7 +31,6 @@ namespace taskManagemetApp
                     this.Close();
                 }
             }
-            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -49,21 +48,24 @@ namespace taskManagemetApp
             txtPassword.Focus();
         }
 
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        /*
+         * ログイン時、ユーザーID/パスワード照合
+         */
         private bool chkLoginUser (string userName, string password)
         {
-            bool chkResult = true;
-            String userSelectSQL = "SELECT user_id,user_password FROM task_manage.user_info WHERE user_id = '" + userName + "' AND user_password = '" + password + "'";
-            String connection = "Server=localhost;Database=task_manage;Uid=root;Pwd=atgs0933";
-            DataTable result = null;
+            bool chkResult         = true;
+            String userSelectQuery = "SELECT user_id FROM task_manage.user_info WHERE user_id = @userName AND user_password = @password";
+            String connection      = DbConfig.GetConnectionString();
+            DataTable result       = null;
             try
             {
                 DatabaseHelper db = new DatabaseHelper(connection);
-
-                result = db.ExecuteSelectQuery(userSelectSQL);
+                var parameters = new Dictionary<String, object>
+                {
+                    {"@userName",userName },
+                    {"@password",password }
+                };
+                result = db.ExecuteSelectQuery(userSelectQuery,parameters);
 
             }catch(Exception ex)
             {
@@ -71,10 +73,14 @@ namespace taskManagemetApp
                 return false;
             }
 
-            if(result.Rows.Count == 0)
+            if (result.Rows.Count == 0)
             {
                 chkResult = false;
                 showError("SELECT_FAILE");
+            }
+            else
+            {
+                LoginSession.LoginUserId = result.Rows[0]["user_id"].ToString();
             }
             return chkResult;
         }
@@ -115,6 +121,11 @@ namespace taskManagemetApp
             }
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
+        }
+
+        private void form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

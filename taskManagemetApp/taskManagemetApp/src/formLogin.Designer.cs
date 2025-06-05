@@ -85,7 +85,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(278, 25);
             this.txtUserName.TabIndex = 4;
-            this.txtUserName.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // txtPassword
             // 
@@ -120,6 +119,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form";
             this.Text = "TaskManager - ログイン";
+            this.Load += new System.EventHandler(this.form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
