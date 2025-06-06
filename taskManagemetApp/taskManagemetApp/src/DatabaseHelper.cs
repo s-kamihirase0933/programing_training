@@ -13,7 +13,7 @@ public class DatabaseHelper
         _connectionString = connectionString;
     }
 
-    // データ変更（INSERT, UPDATE, DELETE）用
+    // データ変更（INSERT, UPDATE, DELETE）用（パラメータ無し）
     public void ExecuteIUDQuery(string query)
     {
         try
@@ -34,6 +34,31 @@ public class DatabaseHelper
 
     }
 
+    //データ変更（INSERT,DELETE,UPDATE）用（パラメータ有）
+    public void ExecuteIUDQuery(string query, Dictionary<string, object> parameters)
+    {
+        try
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    foreach (var pair in parameters)
+                    {
+                        cmd.Parameters.AddWithValue($"@{pair.Key}", pair.Value ?? DBNull.Value);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
     // データ取得（SELECT）用
     public DataTable ExecuteSelectQuery(string query, Dictionary<string, object> parameters)
     {
@@ -42,8 +67,7 @@ public class DatabaseHelper
             DataTable dataTable = new DataTable();
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
-            {
-                // パラメータを追加
+            { 
                 foreach (var param in parameters)
                 {
                     cmd.Parameters.AddWithValue(param.Key, param.Value);

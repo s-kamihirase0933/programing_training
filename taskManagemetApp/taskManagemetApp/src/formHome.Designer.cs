@@ -31,8 +31,8 @@ namespace taskManagemetApp.src
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -125,6 +125,7 @@ namespace taskManagemetApp.src
             // 
             // cboTaskStatus
             // 
+            this.cboTaskStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTaskStatus.FormattingEnabled = true;
             this.cboTaskStatus.Items.AddRange(new object[] {
             "",
@@ -138,6 +139,7 @@ namespace taskManagemetApp.src
             // 
             // cboTaskType
             // 
+            this.cboTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTaskType.FormattingEnabled = true;
             this.cboTaskType.Items.AddRange(new object[] {
             "",
@@ -181,38 +183,39 @@ namespace taskManagemetApp.src
             // 
             this.dgvTaskList.AllowUserToAddRows = false;
             this.dgvTaskList.AllowUserToDeleteRows = false;
+            this.dgvTaskList.AllowUserToResizeColumns = false;
+            this.dgvTaskList.AllowUserToResizeRows = false;
             this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTaskList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTaskList.ColumnHeadersHeight = 40;
+            this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTaskList.EnableHeadersVisualStyles = false;
             this.dgvTaskList.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvTaskList.Location = new System.Drawing.Point(33, 187);
             this.dgvTaskList.Name = "dgvTaskList";
-            this.dgvTaskList.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTaskList.RowHeadersVisible = false;
             this.dgvTaskList.RowHeadersWidth = 4;
             this.dgvTaskList.RowTemplate.Height = 27;
             this.dgvTaskList.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvTaskList.Size = new System.Drawing.Size(1653, 497);
             this.dgvTaskList.TabIndex = 15;
-            this.dgvTaskList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblList_CellContentClick);
             // 
             // btnClear
             // 
@@ -234,6 +237,7 @@ namespace taskManagemetApp.src
             this.btnAddTask.Size = new System.Drawing.Size(50, 48);
             this.btnAddTask.TabIndex = 17;
             this.btnAddTask.UseVisualStyleBackColor = true;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // column
             // 
@@ -248,7 +252,7 @@ namespace taskManagemetApp.src
             this.dtpTaskFinish.Name = "dtpTaskFinish";
             this.dtpTaskFinish.Size = new System.Drawing.Size(26, 25);
             this.dtpTaskFinish.TabIndex = 19;
-            this.dtpTaskFinish.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpTaskFinish.ValueChanged += new System.EventHandler(this.dtpTaskFinish_ValueChanged);
             // 
             // dtpTaskStart
             // 
@@ -256,13 +260,14 @@ namespace taskManagemetApp.src
             this.dtpTaskStart.Name = "dtpTaskStart";
             this.dtpTaskStart.Size = new System.Drawing.Size(26, 25);
             this.dtpTaskStart.TabIndex = 20;
-            this.dtpTaskStart.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dtpTaskStart.ValueChanged += new System.EventHandler(this.dtpTaskStart_ValueChanged);
             // 
             // txtTaskStart
             // 
             this.txtTaskStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaskStart.Location = new System.Drawing.Point(1018, 57);
             this.txtTaskStart.Name = "txtTaskStart";
+            this.txtTaskStart.ReadOnly = true;
             this.txtTaskStart.Size = new System.Drawing.Size(205, 25);
             this.txtTaskStart.TabIndex = 21;
             // 
@@ -271,6 +276,7 @@ namespace taskManagemetApp.src
             this.txtTaskFinish.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaskFinish.Location = new System.Drawing.Point(1018, 115);
             this.txtTaskFinish.Name = "txtTaskFinish";
+            this.txtTaskFinish.ReadOnly = true;
             this.txtTaskFinish.Size = new System.Drawing.Size(205, 25);
             this.txtTaskFinish.TabIndex = 22;
             // 

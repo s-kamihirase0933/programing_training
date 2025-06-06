@@ -29,163 +29,165 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTaskEdit));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.lblTaskName = new System.Windows.Forms.Label();
+            this.txtTaskName = new System.Windows.Forms.TextBox();
+            this.lblTaskType = new System.Windows.Forms.Label();
+            this.lblTaskStatus = new System.Windows.Forms.Label();
+            this.lblTaskStart = new System.Windows.Forms.Label();
+            this.lblTaskFinish = new System.Windows.Forms.Label();
+            this.cboTaskType = new System.Windows.Forms.ComboBox();
+            this.cboTaskStatus = new System.Windows.Forms.ComboBox();
+            this.dtpTaskStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpTaskFinish = new System.Windows.Forms.DateTimePicker();
             this.txtTaskStart = new System.Windows.Forms.TextBox();
             this.txtTaskFinish = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.txtProgress = new System.Windows.Forms.TextBox();
+            this.lblPercent = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTaskName
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            resources.ApplyResources(this.lblTaskName, "lblTaskName");
+            this.lblTaskName.Name = "lblTaskName";
+            this.lblTaskName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // txtTaskName
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtTaskName, "txtTaskName");
+            this.txtTaskName.Name = "txtTaskName";
+            this.txtTaskName.TextChanged += new System.EventHandler(this.txtTaskName_TextChanged);
+            this.txtTaskName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaskName_KeyPress);
             // 
-            // label3
+            // lblTaskType
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.lblTaskType, "lblTaskType");
+            this.lblTaskType.Name = "lblTaskType";
             // 
-            // label4
+            // lblTaskStatus
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lblTaskStatus, "lblTaskStatus");
+            this.lblTaskStatus.Name = "lblTaskStatus";
             // 
-            // label5
+            // lblTaskStart
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lblTaskStart, "lblTaskStart");
+            this.lblTaskStart.Name = "lblTaskStart";
             // 
-            // label6
+            // lblTaskFinish
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lblTaskFinish, "lblTaskFinish");
+            this.lblTaskFinish.Name = "lblTaskFinish";
             // 
-            // comboBox2
+            // cboTaskType
             // 
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            resources.GetString("comboBox2.Items"),
-            resources.GetString("comboBox2.Items1"),
-            resources.GetString("comboBox2.Items2"),
-            resources.GetString("comboBox2.Items3"),
-            resources.GetString("comboBox2.Items4"),
-            resources.GetString("comboBox2.Items5")});
-            this.comboBox2.Name = "comboBox2";
+            this.cboTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboTaskType, "cboTaskType");
+            this.cboTaskType.FormattingEnabled = true;
+            this.cboTaskType.Name = "cboTaskType";
             // 
-            // comboBox3
+            // cboTaskStatus
             // 
-            resources.ApplyResources(this.comboBox3, "comboBox3");
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            resources.GetString("comboBox3.Items"),
-            resources.GetString("comboBox3.Items1"),
-            resources.GetString("comboBox3.Items2")});
-            this.comboBox3.Name = "comboBox3";
+            this.cboTaskStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboTaskStatus, "cboTaskStatus");
+            this.cboTaskStatus.FormattingEnabled = true;
+            this.cboTaskStatus.Items.AddRange(new object[] {
+            resources.GetString("cboTaskStatus.Items"),
+            resources.GetString("cboTaskStatus.Items1"),
+            resources.GetString("cboTaskStatus.Items2"),
+            resources.GetString("cboTaskStatus.Items3")});
+            this.cboTaskStatus.Name = "cboTaskStatus";
             // 
-            // dateTimePicker1
+            // dtpTaskStart
             // 
-            resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            resources.ApplyResources(this.dtpTaskStart, "dtpTaskStart");
+            this.dtpTaskStart.Name = "dtpTaskStart";
+            this.dtpTaskStart.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // dateTimePicker2
+            // dtpTaskFinish
             // 
-            resources.ApplyResources(this.dateTimePicker2, "dateTimePicker2");
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            resources.ApplyResources(this.dtpTaskFinish, "dtpTaskFinish");
+            this.dtpTaskFinish.Name = "dtpTaskFinish";
+            this.dtpTaskFinish.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // txtTaskStart
             // 
             this.txtTaskStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtTaskStart, "txtTaskStart");
             this.txtTaskStart.Name = "txtTaskStart";
+            this.txtTaskStart.ReadOnly = true;
             // 
             // txtTaskFinish
             // 
             this.txtTaskFinish.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtTaskFinish, "txtTaskFinish");
             this.txtTaskFinish.Name = "txtTaskFinish";
+            this.txtTaskFinish.ReadOnly = true;
             // 
-            // button1
+            // btnSave
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Name = "btnSave";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancel
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblProgress
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lblProgress, "lblProgress");
+            this.lblProgress.Name = "lblProgress";
             // 
-            // textBox2
+            // txtProgress
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            this.txtProgress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtProgress, "txtProgress");
+            this.txtProgress.Name = "txtProgress";
+            this.txtProgress.TextChanged += new System.EventHandler(this.txtProgress_TextChanged);
+            this.txtProgress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProgress_KeyPress);
             // 
-            // label7
+            // lblPercent
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lblPercent, "lblPercent");
+            this.lblPercent.Name = "lblPercent";
             // 
-            // label8
+            // lblError
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.lblError, "lblError");
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Name = "lblError";
             // 
             // formTaskEdit
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.lblPercent);
+            this.Controls.Add(this.txtProgress);
+            this.Controls.Add(this.lblProgress);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.dtpTaskFinish);
+            this.Controls.Add(this.dtpTaskStart);
+            this.Controls.Add(this.cboTaskStatus);
+            this.Controls.Add(this.cboTaskType);
+            this.Controls.Add(this.lblTaskFinish);
+            this.Controls.Add(this.lblTaskStart);
+            this.Controls.Add(this.lblTaskStatus);
+            this.Controls.Add(this.lblTaskType);
+            this.Controls.Add(this.txtTaskName);
+            this.Controls.Add(this.lblTaskName);
             this.Controls.Add(this.txtTaskStart);
             this.Controls.Add(this.txtTaskFinish);
             this.Name = "formTaskEdit";
+            this.Load += new System.EventHandler(this.formTaskEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,23 +195,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label lblTaskName;
+        private System.Windows.Forms.TextBox txtTaskName;
+        private System.Windows.Forms.Label lblTaskType;
+        private System.Windows.Forms.Label lblTaskStatus;
+        private System.Windows.Forms.Label lblTaskStart;
+        private System.Windows.Forms.Label lblTaskFinish;
+        private System.Windows.Forms.ComboBox cboTaskType;
+        private System.Windows.Forms.ComboBox cboTaskStatus;
+        private System.Windows.Forms.DateTimePicker dtpTaskStart;
+        private System.Windows.Forms.DateTimePicker dtpTaskFinish;
         private System.Windows.Forms.TextBox txtTaskStart;
         private System.Windows.Forms.TextBox txtTaskFinish;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblProgress;
+        private System.Windows.Forms.TextBox txtProgress;
+        private System.Windows.Forms.Label lblPercent;
+        private System.Windows.Forms.Label lblError;
     }
 }
