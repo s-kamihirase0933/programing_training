@@ -265,12 +265,14 @@ namespace taskManagemetApp.src
             };
             DataTable result = db.ExecuteSelectQuery(clickedTaskSelectQuery, parameters);
 
-            cboTaskType.Text   = result.Rows[0].ToString();
-            cboTaskStatus.Text = result.Rows[1].ToString();
-            txtTaskName.Text   = result.Rows[2].ToString();
-            txtProgress.Text   = result.Rows[3].ToString();
-            txtTaskStart.Text  = result.Rows[4].ToString();
-            txtTaskFinish.Text = result.Rows[5].ToString();
+            DataRow row = result.Rows[0];
+
+            cboTaskType.Text = row["task_type"] != DBNull.Value ? row["task_type"].ToString() : "";
+            cboTaskStatus.Text = row["task_status"] != DBNull.Value ? row["task_status"].ToString() : "";
+            txtTaskName.Text = row["task_name"] != DBNull.Value ? row["task_name"].ToString() : "";
+            txtProgress.Text = row["task_progress"] != DBNull.Value ? row["task_progress"].ToString() : "";
+            txtTaskStart.Text = row["task_start"] != DBNull.Value ? Convert.ToDateTime(row["task_start"]).ToString("yyyy/MM/dd") : "";
+            txtTaskFinish.Text = row["task_finish"] != DBNull.Value ? Convert.ToDateTime(row["task_finish"]).ToString("yyyy/MM/dd") : "";
 
         }
 

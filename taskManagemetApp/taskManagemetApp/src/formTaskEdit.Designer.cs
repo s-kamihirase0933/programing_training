@@ -88,6 +88,16 @@
             this.cboTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cboTaskType, "cboTaskType");
             this.cboTaskType.FormattingEnabled = true;
+            this.cboTaskType.Items.AddRange(new object[] {
+            resources.GetString("cboTaskType.Items"),
+            resources.GetString("cboTaskType.Items1"),
+            resources.GetString("cboTaskType.Items2"),
+            resources.GetString("cboTaskType.Items3"),
+            resources.GetString("cboTaskType.Items4"),
+            resources.GetString("cboTaskType.Items5"),
+            resources.GetString("cboTaskType.Items6"),
+            resources.GetString("cboTaskType.Items7"),
+            resources.GetString("cboTaskType.Items8")});
             this.cboTaskType.Name = "cboTaskType";
             // 
             // cboTaskStatus
