@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace taskManagemetApp.src
     public partial class formTaskEdit : Form
     {
         private String clickedTaskName;  // クリックされたタスク
+        private formHome homeForm;
         public void SetClickedTaskName(String clickedTaskName)
         {
             this.clickedTaskName = clickedTaskName;
@@ -23,9 +25,10 @@ namespace taskManagemetApp.src
         {
             return clickedTaskName;
         }
-        public formTaskEdit()
+        public formTaskEdit(formHome home)
         {
             InitializeComponent();
+            this.homeForm = home;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -50,26 +53,18 @@ namespace taskManagemetApp.src
             txtTaskFinish.Text = dtpTaskStart.Value.ToString("yyyy/MM/dd");
         }
 
+        private String mode;
         private void formTaskEdit_Load(object sender, EventArgs e)
         {
-            ClickedContent(this.clickedTaskName);
-        }
-
-        /*
-         * タスク編集モードorタスク追加モード
-         * 条件：
-         * taskNameがNULL　　　→タスク追加モード
-         * taskNameがNULLでない→タスク編集モード
-         */
-        private void ClickedContent(String taskName)
-        {
-            if(taskName != null)
+            //タスク編集モード or タスク追加モード
+            if(this.clickedTaskName != null)
             {
                 showTaskInfo();
+                this.mode = "EDIT";
             }
             else
             {
-
+                this.mode = "ADD";
             }
         }
 
@@ -110,6 +105,10 @@ namespace taskManagemetApp.src
             if(taskProgress == "100")
             {
                 taskStatus = "完了";
+            }
+            if(taskProgress == "")
+            {
+                this.taskProgress = "0";
             }
 
             if(taskStatus == "完了" && taskFinish == "")
@@ -280,7 +279,7 @@ namespace taskManagemetApp.src
         private void updateTaskInfo()
         {
             //重複チェックがfalseの場合、エラーメッセージを表示して処理終了
-            if (!CheckTaskNameExist())
+            if (!CheckUpdateTaskNameExist())
             {
                 showErrorMsg("NAME_EXISTS");
                 return;
@@ -294,7 +293,7 @@ namespace taskManagemetApp.src
                                  "task_start    = @taskStart, " +
                                  "task_finish   = @taskFinish " +
                                  "WHERE task_holder_id = @taskHolderId " +
-                                 "AND task_name        = @taskName";
+                                 "AND task_name        = @oldTaskName";
 
 
             var parameters = new Dictionary<String, object>
@@ -303,19 +302,19 @@ namespace taskManagemetApp.src
                 {"taskStatus", this.taskStatus},
                 {"taskName", this.taskName},
                 {"taskProgress", this.taskProgress},
-                {"taskStart", DateTime.Parse(this.taskStart)},
-                {"taskFinish", DateTime.Parse(this.taskFinish)},
+                {"taskStart", string.IsNullOrWhiteSpace(this.taskStart) ? (DateTime?)null : DateTime.Parse(this.taskStart)},
+                {"taskFinish", string.IsNullOrWhiteSpace(this.taskFinish) ? (DateTime?)null : DateTime.Parse(this.taskFinish)},
                 {"taskHolderId", LoginSession.LoginUserId},
-                {"taskName", this.clickedTaskName}
+                {"oldTaskName", this.clickedTaskName}
             };
 
             String connection = DbConfig.GetConnectionString();
             DatabaseHelper db = new DatabaseHelper(connection);
-            db.ExecuteIUDQuery(updateQuery);
+            db.ExecuteIUDQuery(updateQuery,parameters);
         }
 
-        //重複チェック
-        private bool CheckTaskNameExist()
+        //タスク名重複チェック（UPDATE）
+        private bool CheckUpdateTaskNameExist()
         {
             bool chkResult = true;
             String taskNameSelect = "SELECT COUNT(*) " +
@@ -351,10 +350,60 @@ namespace taskManagemetApp.src
         //入力されたタスク情報を登録する
         private void insertTaskInfo()
         {
+            if (!CheckInsertTaskNameExist())
+            {
+                showErrorMsg("NAME_EXISTS");
+                return;
+            }
+
+            String insertQuery = "INSERT INTO task_manage.task_info" +
+                                 "(task_holder_id, task_type, task_status, task_name, task_progress, task_start, task_finish) " +
+                                 "VALUES (@taskHolderId, @taskType, @taskStatus, @taskName, @taskProgress, @taskStart, @taskFinish)";
+
+            var parameters = new Dictionary<String, object>
+            {
+                {"taskHolderId", LoginSession.LoginUserId },
+                {"taskType", this.taskType},
+                {"taskStatus", this.taskStatus},
+                {"taskName", this.taskName},
+                {"taskProgress", this.taskProgress},
+                {"taskStart", string.IsNullOrWhiteSpace(this.taskStart) ? (DateTime?)null : DateTime.Parse(this.taskStart)},
+                {"taskFinish", string.IsNullOrWhiteSpace(this.taskFinish) ? (DateTime?)null : DateTime.Parse(this.taskFinish)}
+            };
+
+            String connection = DbConfig.GetConnectionString();
+            DatabaseHelper db = new DatabaseHelper(connection);
+            db.ExecuteIUDQuery(insertQuery, parameters);
 
         }
 
+        //タスク名重複チェック（INSERT）
+        private bool CheckInsertTaskNameExist()
+        {
+            bool chkResult = true;
 
+            String taskNameSelect = "SELECT COUNT(*) " +
+                                    "FROM task_manage.task_info " +
+                                    "WHERE task_holder_id = @taskHolderId " +
+                                    "AND task_name = @taskName";
+
+            String connection = DbConfig.GetConnectionString();
+            DatabaseHelper db = new DatabaseHelper(connection);
+
+            var parameters = new Dictionary<String, object>
+            {
+                {"taskHolderId",LoginSession.LoginUserId },
+                {"taskName", this.taskName }
+            };
+
+            DataTable result = db.ExecuteSelectQuery(taskNameSelect, parameters);
+            int count = Convert.ToInt32(result.Rows[0][0]);
+            if (count > 0)
+            {
+                chkResult = false;
+            }
+            return chkResult;
+        }
         /*
          * ==============================================================================================
          */
@@ -382,5 +431,25 @@ namespace taskManagemetApp.src
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            GetTaskInfo_Check_Convert();
+            if (this.mode == "EDIT")
+            {
+                updateTaskInfo();
+            }else if(this.mode == "ADD")
+            {
+                insertTaskInfo();
+            }
+
+            formHome formHome = new formHome();//画面遷移が上手くいかない
+            formHome.GetConditions();
+            this.Close();
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace taskManagemetApp.src
         /*
          * テキストボックス、コンボボックスの検索条件取得
          */
-        private void GetConditions()
+        public void GetConditions()
         {
             var conditionDict = new Dictionary<String, object>(); //検索条件を入れるDictionary
 
@@ -424,9 +424,10 @@ namespace taskManagemetApp.src
 
                 if (columnName == "TaskName")
                 {
-                    formTaskEdit formTaskEdit = new formTaskEdit();
+                    var formTaskEdit = new formTaskEdit(this);
                     formTaskEdit.SetClickedTaskName(dgvTaskList.Rows[e.RowIndex].Cells["TaskName"].Value?.ToString());
-                    formTaskEdit.Show();
+                    formTaskEdit.ShowDialog();
+                    
                 }
             }
         }
@@ -436,9 +437,19 @@ namespace taskManagemetApp.src
          */
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            formTaskEdit formTaskEdit = new formTaskEdit();
+            formTaskEdit formTaskEdit = new formTaskEdit(this);
             formTaskEdit.SetClickedTaskName(null);
-            formTaskEdit.Show();
+            formTaskEdit.ShowDialog();
+        }
+
+        /*
+         * 再ロード
+         */
+        public void ReloadTaskList()
+        {
+            SetUpDataGridView();
+            SelectAll();
+            DisplayPage();
         }
     }
 }
