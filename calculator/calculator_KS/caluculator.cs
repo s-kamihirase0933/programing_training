@@ -16,9 +16,11 @@ namespace calculator_KS
 {
     public partial class caluculator : Form
     {
+        private Font initialFont;
         public caluculator()
         {
             InitializeComponent();
+            initialFont = txtDisplay.Font; //アプリ起動時のフォントサイズを保持
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -359,6 +361,7 @@ namespace calculator_KS
                 mType = MarksType.NON;
                 txtDisplay.Text = "0";
                 BtnActivation(true);
+                txtDisplay.Font = initialFont;
 
             }
             BtnColorChange("PLUS", "DEFAULT");
@@ -433,6 +436,7 @@ namespace calculator_KS
                 ErrorMsg = "桁数上限" + ErrorMsg;
             }
             BtnActivation(false);
+            txtDisplay.Font = new Font(txtDisplay.Font.FontFamily, 13);
             txtDisplay.Text = ErrorMsg;
             btnClear.Text = "AC";
             return;
