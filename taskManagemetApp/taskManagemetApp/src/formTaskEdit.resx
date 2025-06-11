@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTaskName.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="txtTaskName.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 15pt</value>
@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTaskName.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="lblTaskType.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11pt, style=Bold</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTaskType.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="lblTaskStatus.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11pt, style=Bold</value>
@@ -241,7 +241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTaskStatus.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="lblTaskStart.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11pt, style=Bold</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTaskStart.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lblTaskFinish.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11pt, style=Bold</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTaskFinish.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="cboTaskType.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
@@ -358,7 +358,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboTaskType.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="cboTaskStatus.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
@@ -394,7 +394,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboTaskStatus.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="dtpTaskStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>379, 361</value>
@@ -415,7 +415,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpTaskStart.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="dtpTaskFinish.Location" type="System.Drawing.Point, System.Drawing">
     <value>379, 442</value>
@@ -436,7 +436,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpTaskFinish.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="txtTaskStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>203, 361</value>
@@ -457,7 +457,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTaskStart.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="txtTaskFinish.Location" type="System.Drawing.Point, System.Drawing">
     <value>203, 442</value>
@@ -478,7 +478,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTaskFinish.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>970, 438</value>
@@ -502,7 +502,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 8pt</value>
@@ -532,7 +532,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lblProgress.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11pt, style=Bold</value>
@@ -565,7 +565,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblProgress.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="txtProgress.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 295</value>
@@ -586,7 +586,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtProgress.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lblPercent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -616,7 +616,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPercent.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="lblError.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 9pt, style=Bold</value>
@@ -646,6 +646,66 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblError.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnClearTaskStart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 8pt</value>
+  </data>
+  <data name="btnClearTaskStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnClearTaskStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 361</value>
+  </data>
+  <data name="btnClearTaskStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 30</value>
+  </data>
+  <data name="btnClearTaskStart.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnClearTaskStart.Text" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskStart.Name" xml:space="preserve">
+    <value>btnClearTaskStart</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskStart.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskStart.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnClearTaskFinish.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 8pt</value>
+  </data>
+  <data name="btnClearTaskFinish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnClearTaskFinish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 441</value>
+  </data>
+  <data name="btnClearTaskFinish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 30</value>
+  </data>
+  <data name="btnClearTaskFinish.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnClearTaskFinish.Text" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskFinish.Name" xml:space="preserve">
+    <value>btnClearTaskFinish</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskFinish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskFinish.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnClearTaskFinish.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

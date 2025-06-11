@@ -23,7 +23,7 @@ namespace taskManagemetApp
         {
             String userId   = txtUserName.Text;
             String password = txtPassword.Text;
-            if (IsValidText(userId) && IsValidText(password))
+            if (isValidText(userId) && isValidText(password))
             {
                 if (chkLoginUser(userId, password))
                 {
@@ -90,7 +90,7 @@ namespace taskManagemetApp
          * ➀NULL又は空文字、スペース
          * ➁a-z,A-Z,0-9以外の文字列を含む
          */
-        private bool IsValidText(String text)
+        private bool isValidText(String text)
         {
             bool chkResult = true;
             if (string.IsNullOrWhiteSpace(text))
@@ -121,11 +121,6 @@ namespace taskManagemetApp
             }
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
-        }
-
-        private void form_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

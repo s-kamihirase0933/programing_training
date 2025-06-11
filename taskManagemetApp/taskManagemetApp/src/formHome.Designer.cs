@@ -31,8 +31,8 @@ namespace taskManagemetApp.src
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -89,6 +89,7 @@ namespace taskManagemetApp.src
             this.lblTaskName.TabIndex = 3;
             this.lblTaskName.Text = "タスク名：";
             this.lblTaskName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTaskName.Click += new System.EventHandler(this.lblTaskName_Click);
             // 
             // lblTaskStart
             // 
@@ -100,6 +101,7 @@ namespace taskManagemetApp.src
             this.lblTaskStart.TabIndex = 6;
             this.lblTaskStart.Text = "タスク開始日：";
             this.lblTaskStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskStart.Click += new System.EventHandler(this.lblTaskStart_Click);
             // 
             // lblTaskFinish
             // 
@@ -111,6 +113,7 @@ namespace taskManagemetApp.src
             this.lblTaskFinish.TabIndex = 8;
             this.lblTaskFinish.Text = "タスク完了日：";
             this.lblTaskFinish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskFinish.Click += new System.EventHandler(this.lblTaskFinish_Click);
             // 
             // lblTaskStatus
             // 
@@ -122,6 +125,7 @@ namespace taskManagemetApp.src
             this.lblTaskStatus.TabIndex = 10;
             this.lblTaskStatus.Text = "タスク状況：";
             this.lblTaskStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskStatus.Click += new System.EventHandler(this.lblTaskStatus_Click);
             // 
             // cboTaskStatus
             // 
@@ -168,6 +172,7 @@ namespace taskManagemetApp.src
             this.lblTaskType.TabIndex = 12;
             this.lblTaskType.Text = "タスク分類：";
             this.lblTaskType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskType.Click += new System.EventHandler(this.lblTaskType_Click);
             // 
             // btnSearch
             // 
@@ -188,28 +193,28 @@ namespace taskManagemetApp.src
             this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTaskList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaskList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTaskList.ColumnHeadersHeight = 40;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTaskList.EnableHeadersVisualStyles = false;
             this.dgvTaskList.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvTaskList.Location = new System.Drawing.Point(33, 187);
             this.dgvTaskList.Name = "dgvTaskList";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaskList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTaskList.RowHeadersVisible = false;
             this.dgvTaskList.RowHeadersWidth = 4;
             this.dgvTaskList.RowTemplate.Height = 27;
@@ -267,18 +272,22 @@ namespace taskManagemetApp.src
             this.txtTaskStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaskStart.Location = new System.Drawing.Point(1018, 57);
             this.txtTaskStart.Name = "txtTaskStart";
-            this.txtTaskStart.ReadOnly = true;
             this.txtTaskStart.Size = new System.Drawing.Size(205, 25);
             this.txtTaskStart.TabIndex = 21;
+            this.txtTaskStart.ContextMenuStripChanged += new System.EventHandler(this.txtTaskStart_ContextMenuStripChanged);
+            this.txtTaskStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTaskStart_KeyDown);
+            this.txtTaskStart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaskStart_KeyPress);
             // 
             // txtTaskFinish
             // 
             this.txtTaskFinish.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaskFinish.Location = new System.Drawing.Point(1018, 115);
             this.txtTaskFinish.Name = "txtTaskFinish";
-            this.txtTaskFinish.ReadOnly = true;
             this.txtTaskFinish.Size = new System.Drawing.Size(205, 25);
             this.txtTaskFinish.TabIndex = 22;
+            this.txtTaskFinish.ContextMenuStripChanged += new System.EventHandler(this.txtTaskFinish_ContextMenuStripChanged);
+            this.txtTaskFinish.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTaskFinish_KeyDown);
+            this.txtTaskFinish.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaskFinish_KeyPress);
             // 
             // lblCurrentPage
             // 

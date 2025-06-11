@@ -17,11 +17,11 @@ namespace taskManagemetApp.src
     {
         private String clickedTaskName;  // クリックされたタスク
         private formHome homeForm;
-        public void SetClickedTaskName(String clickedTaskName)
+        public void setClickedTaskName(String clickedTaskName)
         {
             this.clickedTaskName = clickedTaskName;
         }
-        public String GetClickedTaskName()
+        public String getClickedTaskName()
         {
             return clickedTaskName;
         }
@@ -31,26 +31,14 @@ namespace taskManagemetApp.src
             this.homeForm = home;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dtpTaskStart_ValueChanged(object sender, EventArgs e)
         {
             txtTaskStart.Text = dtpTaskStart.Value.ToString("yyyy/MM/dd");
         }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        private void dtpTaskFinish_ValueChanged(object sender, EventArgs e)
         {
-            txtTaskFinish.Text = dtpTaskStart.Value.ToString("yyyy/MM/dd");
+            txtTaskFinish.Text = dtpTaskFinish.Value.ToString("yyyy/MM/dd");
         }
 
         private String mode;
@@ -79,10 +67,11 @@ namespace taskManagemetApp.src
         private String taskStart;     //タスク開始日
         private String taskFinish;    //タスク完了日
 
+        bool taskNameChkResult = true;
         //入力されたタスク情報を取得し、チェック/変換
-        private bool GetTaskInfo_Check_Convert()
+        private bool getTaskInfo_Check_Convert()
         {
-            bool chkResult = true;
+           
             //入力されたタスク情報を取得
             taskName = txtTaskName.Text;   //タスク名
             taskType = cboTaskType.Text;   //タスク分類
@@ -98,7 +87,8 @@ namespace taskManagemetApp.src
             if (taskName == "")
             {
                 showErrorMsg("NAME_NULL");
-                chkResult = false;
+                return false;
+                
             }
 
             //タスク状況
@@ -114,7 +104,7 @@ namespace taskManagemetApp.src
             if(taskStatus == "完了" && taskFinish == "")
             {
                 showErrorMsg("TASK_FINISH_NULL");
-                chkResult = false;
+                return false;
             }
 
             DateTime taskStartDate;   //タスク開始日(DateTime型)
@@ -127,11 +117,10 @@ namespace taskManagemetApp.src
 
                 if(taskStartDate > taskFinishDate)
                 {
-                    taskFinish = ""; //タスク開始日がタスク完了日の後の場合、タスク完了日を消す
+                    this.taskFinish = ""; //タスク開始日がタスク完了日の後の場合、タスク完了日を消す
                 }
             }
-            
-            return chkResult;
+            return true;
         }
 
         /*
@@ -156,7 +145,7 @@ namespace taskManagemetApp.src
             int selectionStart = tb.SelectionStart;
             string originalText = tb.Text;
 
-            string converted = ToHalfWidthNumbers(originalText);
+            string converted = toHalfWidthNumbers(originalText);
 
             if (converted != originalText)
             {
@@ -181,7 +170,7 @@ namespace taskManagemetApp.src
                 txtProgress.Text = "";
             }
         }
-        private string ToHalfWidthNumbers(string input)
+        private string toHalfWidthNumbers(string input)
         {
             var sb = new System.Text.StringBuilder();
             foreach (char c in input)
@@ -225,7 +214,7 @@ namespace taskManagemetApp.src
         private void txtTaskName_TextChanged(object sender, EventArgs e)
         {
             string original = txtTaskName.Text;
-            string filtered = FilterInvalidMySQLChars(original);
+            string filtered = filterInvalidMySQLChars(original);
 
             if (original != filtered)
             {
@@ -234,7 +223,7 @@ namespace taskManagemetApp.src
                 txtTaskName.SelectionStart = Math.Min(pos, txtTaskName.Text.Length);
             }
         }
-        private string FilterInvalidMySQLChars(string input)
+        private string filterInvalidMySQLChars(string input)
         {
             return new string(input.Where(c =>
                 !char.IsControl(c) || c == '\b' // バックスペース許可
@@ -279,9 +268,10 @@ namespace taskManagemetApp.src
         private void updateTaskInfo()
         {
             //重複チェックがfalseの場合、エラーメッセージを表示して処理終了
-            if (!CheckUpdateTaskNameExist())
+            if (!checkUpdateTaskNameExist())
             {
                 showErrorMsg("NAME_EXISTS");
+                this.taskNameChkResult = false;
                 return;
             }
 
@@ -314,7 +304,7 @@ namespace taskManagemetApp.src
         }
 
         //タスク名重複チェック（UPDATE）
-        private bool CheckUpdateTaskNameExist()
+        private bool checkUpdateTaskNameExist()
         {
             bool chkResult = true;
             String taskNameSelect = "SELECT COUNT(*) " +
@@ -350,9 +340,10 @@ namespace taskManagemetApp.src
         //入力されたタスク情報を登録する
         private void insertTaskInfo()
         {
-            if (!CheckInsertTaskNameExist())
+            if (!checkInsertTaskNameExist())
             {
                 showErrorMsg("NAME_EXISTS");
+                this.taskNameChkResult = false;
                 return;
             }
 
@@ -378,7 +369,7 @@ namespace taskManagemetApp.src
         }
 
         //タスク名重複チェック（INSERT）
-        private bool CheckInsertTaskNameExist()
+        private bool checkInsertTaskNameExist()
         {
             bool chkResult = true;
 
@@ -438,18 +429,70 @@ namespace taskManagemetApp.src
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            GetTaskInfo_Check_Convert();
-            if (this.mode == "EDIT")
+            if (getTaskInfo_Check_Convert())
             {
-                updateTaskInfo();
-            }else if(this.mode == "ADD")
-            {
-                insertTaskInfo();
+                if (this.mode == "EDIT")
+                {
+                    updateTaskInfo();
+                }
+                else if (this.mode == "ADD")
+                {
+                    insertTaskInfo();
+                }
+
+                if (this.taskNameChkResult)
+                {
+                    homeForm.searchTasks();
+                    this.Close();
+                }
+
             }
 
-            formHome formHome = new formHome();//画面遷移が上手くいかない
-            formHome.GetConditions();
-            this.Close();
+        }
+
+        /*
+         * ↓ラベルクリックイベント
+         */
+        private void lblTaskName_Click(object sender, EventArgs e)
+        {
+            txtTaskName.Focus();
+        }
+
+        private void lblTaskType_Click(object sender, EventArgs e)
+        {
+            cboTaskType.DroppedDown = true;
+        }
+
+        private void lblTaskStatus_Click(object sender, EventArgs e)
+        {
+            cboTaskStatus.DroppedDown = true;
+        }
+
+        private void lblProgress_Click(object sender, EventArgs e)
+        {
+            txtProgress.Focus();
+        }
+
+        private void lblTaskStart_Click(object sender, EventArgs e)
+        {
+            dtpTaskStart.Focus();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void lblTaskFinish_Click(object sender, EventArgs e)
+        {
+            dtpTaskFinish.Focus();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void btnClearTaskStart_Click(object sender, EventArgs e)
+        {
+            txtTaskStart.Text = string.Empty;
+        }
+
+        private void btnClearTaskFinish_Click(object sender, EventArgs e)
+        {
+            txtTaskFinish.Text = string.Empty;
         }
     }
 }

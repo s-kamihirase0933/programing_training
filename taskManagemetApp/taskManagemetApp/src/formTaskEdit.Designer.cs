@@ -47,13 +47,15 @@
             this.txtProgress = new System.Windows.Forms.TextBox();
             this.lblPercent = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnClearTaskStart = new System.Windows.Forms.Button();
+            this.btnClearTaskFinish = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTaskName
             // 
             resources.ApplyResources(this.lblTaskName, "lblTaskName");
             this.lblTaskName.Name = "lblTaskName";
-            this.lblTaskName.Click += new System.EventHandler(this.label1_Click);
+            this.lblTaskName.Click += new System.EventHandler(this.lblTaskName_Click);
             // 
             // txtTaskName
             // 
@@ -67,21 +69,25 @@
             // 
             resources.ApplyResources(this.lblTaskType, "lblTaskType");
             this.lblTaskType.Name = "lblTaskType";
+            this.lblTaskType.Click += new System.EventHandler(this.lblTaskType_Click);
             // 
             // lblTaskStatus
             // 
             resources.ApplyResources(this.lblTaskStatus, "lblTaskStatus");
             this.lblTaskStatus.Name = "lblTaskStatus";
+            this.lblTaskStatus.Click += new System.EventHandler(this.lblTaskStatus_Click);
             // 
             // lblTaskStart
             // 
             resources.ApplyResources(this.lblTaskStart, "lblTaskStart");
             this.lblTaskStart.Name = "lblTaskStart";
+            this.lblTaskStart.Click += new System.EventHandler(this.lblTaskStart_Click);
             // 
             // lblTaskFinish
             // 
             resources.ApplyResources(this.lblTaskFinish, "lblTaskFinish");
             this.lblTaskFinish.Name = "lblTaskFinish";
+            this.lblTaskFinish.Click += new System.EventHandler(this.lblTaskFinish_Click);
             // 
             // cboTaskType
             // 
@@ -116,13 +122,14 @@
             // 
             resources.ApplyResources(this.dtpTaskStart, "dtpTaskStart");
             this.dtpTaskStart.Name = "dtpTaskStart";
-            this.dtpTaskStart.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpTaskStart.ValueChanged += new System.EventHandler(this.dtpTaskStart_ValueChanged);
             // 
             // dtpTaskFinish
             // 
             resources.ApplyResources(this.dtpTaskFinish, "dtpTaskFinish");
             this.dtpTaskFinish.Name = "dtpTaskFinish";
-            this.dtpTaskFinish.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dtpTaskFinish.Value = new System.DateTime(2025, 6, 11, 11, 57, 58, 0);
+            this.dtpTaskFinish.ValueChanged += new System.EventHandler(this.dtpTaskFinish_ValueChanged);
             // 
             // txtTaskStart
             // 
@@ -156,6 +163,7 @@
             // 
             resources.ApplyResources(this.lblProgress, "lblProgress");
             this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Click += new System.EventHandler(this.lblProgress_Click);
             // 
             // txtProgress
             // 
@@ -176,10 +184,26 @@
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Name = "lblError";
             // 
+            // btnClearTaskStart
+            // 
+            resources.ApplyResources(this.btnClearTaskStart, "btnClearTaskStart");
+            this.btnClearTaskStart.Name = "btnClearTaskStart";
+            this.btnClearTaskStart.UseVisualStyleBackColor = true;
+            this.btnClearTaskStart.Click += new System.EventHandler(this.btnClearTaskStart_Click);
+            // 
+            // btnClearTaskFinish
+            // 
+            resources.ApplyResources(this.btnClearTaskFinish, "btnClearTaskFinish");
+            this.btnClearTaskFinish.Name = "btnClearTaskFinish";
+            this.btnClearTaskFinish.UseVisualStyleBackColor = true;
+            this.btnClearTaskFinish.Click += new System.EventHandler(this.btnClearTaskFinish_Click);
+            // 
             // formTaskEdit
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnClearTaskFinish);
+            this.Controls.Add(this.btnClearTaskStart);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblPercent);
             this.Controls.Add(this.txtProgress);
@@ -225,5 +249,7 @@
         private System.Windows.Forms.TextBox txtProgress;
         private System.Windows.Forms.Label lblPercent;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnClearTaskStart;
+        private System.Windows.Forms.Button btnClearTaskFinish;
     }
 }

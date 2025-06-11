@@ -10,13 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace taskManagemetApp.src
 {
     public partial class formHome : Form
     {
-        private List<MyTask> taskList;   // 全データ
+        private List<myTask> taskList;   // 全データ
         private int pageSize = 10;       // 1ページあたりの行数
         private int currentPage = 1;     // 現在のページ
         
@@ -28,15 +29,15 @@ namespace taskManagemetApp.src
             InitializeComponent();
             this.dgvTaskList.CellFormatting += tblTaskList_CellFormatting;
             this.dgvTaskList.CellDoubleClick += dgvTaskList_CellDoubleClick;
-            SetUpDataGridView();
-            SelectAll();
-            DisplayPage();
+            setUpDataGridView();
+            selectAll();
+            displayPage();
         }
 
         /*
          * ページ数表示
          */
-        private void DisplayPage()
+        private void displayPage()
         {
             int skip = (currentPage - 1) * pageSize;
             var pageData = taskList.Skip(skip).Take(pageSize).ToList();
@@ -53,7 +54,7 @@ namespace taskManagemetApp.src
             if (currentPage < (int)Math.Ceiling((double)taskList.Count / pageSize))
             {
                 currentPage++;
-                DisplayPage();
+                displayPage();
             }
         }
 
@@ -62,14 +63,14 @@ namespace taskManagemetApp.src
             if (currentPage > 1)
             {
                 currentPage--;
-                DisplayPage();
+                displayPage();
             }
         }
 
         /*
          * テキストボックス、コンボボックスの検索条件取得
          */
-        public void GetConditions()
+        public void getConditions()
         {
             var conditionDict = new Dictionary<String, object>(); //検索条件を入れるDictionary
 
@@ -87,7 +88,7 @@ namespace taskManagemetApp.src
                taskFinish == "")
             {
                 //全検索
-                SelectAll();
+                selectAll();
             }
             else
             {
@@ -118,11 +119,11 @@ namespace taskManagemetApp.src
                     conditionDict["taskFinish"] = taskFinish;
                 }
 
-                SelectByCondition(conditionDict);
+                selectByCondition(conditionDict);
             }
         }
 
-        public class MyTask
+        public class myTask
         {
             public string TaskType { get; set; }
             public string TaskStatus { get; set; }
@@ -137,30 +138,30 @@ namespace taskManagemetApp.src
         /*
          * 全検索
          */
-        private void SelectAll()
+        private void selectAll()
         {
             String selectAllQuery = "SELECT task_type, task_status, task_name, task_progress, task_start, task_finish " +
                                     "FROM task_manage.task_info " +
-                                    "WHERE task_holder_id = @taskHolderId";
+                                    "WHERE task_holder_id = @taskHolderId ";
 
             String loginUserId = LoginSession.LoginUserId;
             var parameters = new Dictionary<String, object>
             {
                 {"@taskHolderId", loginUserId}
             };
-            selectAllQuery += " ORDER BY task_type";
-            LoadTasks(selectAllQuery, parameters);
+            selectAllQuery += "ORDER BY task_start IS NULL ASC, task_start ASC";
+            loadTasks(selectAllQuery, parameters);
         }
         
         /*
          * 条件検索
          */
-        private void SelectByCondition(Dictionary<String, object> conditions)
+        private void selectByCondition(Dictionary<String, object> conditions)
         {
             String loginUserId = LoginSession.LoginUserId;
             String selectByConditionQuery = "SELECT task_type, task_status, task_name, task_progress, task_start, task_finish " +
                                             "FROM task_manage.task_info " +
-                                            "WHERE task_holder_id = @taskHolderId";
+                                            "WHERE task_holder_id = @taskHolderId ";
 
             var parameters = new Dictionary<String, object>
             {
@@ -197,16 +198,16 @@ namespace taskManagemetApp.src
                 selectByConditionQuery   += " AND task_finish = @taskFinish";
                 parameters["@taskFinish"] = taskFinishValue;
             }
-            selectByConditionQuery += " ORDER BY task_type";
+            selectByConditionQuery += " ORDER BY task_start IS NULL ASC, task_start ASC";
 
-            LoadTasks(selectByConditionQuery, parameters);
+            loadTasks(selectByConditionQuery, parameters);
         }
         /*
          * タスク一覧表示
          */
-        private void LoadTasks(String query, Dictionary<String, object> parameters)
+        private void loadTasks(String query, Dictionary<String, object> parameters)
         {
-            taskList = new List<MyTask>();
+            taskList = new List<myTask>();
             String connection = DbConfig.GetConnectionString();
             DatabaseHelper db = new DatabaseHelper(connection);
             var dt = db.ExecuteSelectQuery(query, parameters);
@@ -217,40 +218,40 @@ namespace taskManagemetApp.src
             }
             foreach (DataRow row in dt.Rows)
             {
-                taskList.Add(new MyTask
+                taskList.Add(new myTask
                 {
-                    TaskType     = GetString(row, "task_type"),
-                    TaskStatus   = GetString(row, "task_status"),
-                    TaskName     = GetString(row, "task_name"),
-                    TaskProgress = GetInt(row, "task_progress"),
-                    TaskStart    = GetString(row, "task_start"),
-                    TaskFinish   = GetString(row, "task_finish")
+                    TaskType     = getString(row, "task_type"),
+                    TaskStatus   = getString(row, "task_status"),
+                    TaskName     = getString(row, "task_name"),
+                    TaskProgress = getInt(row, "task_progress"),
+                    TaskStart    = getString(row, "task_start"),
+                    TaskFinish   = getString(row, "task_finish")
                 });
             }
-            BindTasksToGrid();
+            bindTasksToGrid();
         }
-        private string GetString(DataRow row, string column)
+        private string getString(DataRow row, string column)
         {
             return row[column] != DBNull.Value ? row[column].ToString() : "";
         }
 
-        private int GetInt(DataRow row, string column)
+        private int getInt(DataRow row, string column)
         {
             return row[column] != DBNull.Value ? Convert.ToInt32(row[column]) : 0;
         }
 
-        private void SetUpDataGridView()
+        private void setUpDataGridView()
         {
             dgvTaskList.Columns.Clear(); // 既存の列を削除
             dgvTaskList.AutoGenerateColumns = false;
 
             // カラムを手動追加
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskType", "タスク分類"));
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskStatus", "タスク状況"));
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskName", "タスク名"));
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskProgress", "進捗"));
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskStart", "タスク開始日"));
-            dgvTaskList.Columns.Add(CreateTextColumn("TaskFinish", "タスク完了日"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskType", "タスク分類"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskStatus", "タスク状況"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskName", "タスク名"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskProgress", "進捗"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskStart", "タスク開始日"));
+            dgvTaskList.Columns.Add(createTextColumn("TaskFinish", "タスク完了日"));
 
             // チェックボックスカラムを作成
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
@@ -264,12 +265,12 @@ namespace taskManagemetApp.src
 
             dgvTaskList.Columns.Add(checkBoxColumn);
 
-            //
+            //dgvTaskListを読み取り専用に
             foreach (DataGridViewColumn column in dgvTaskList.Columns)
             {
                 column.ReadOnly = true;
             }
-
+            //checkTaskカラムのみ編集可に
             dgvTaskList.Columns["CheckTask"].ReadOnly = false;
         }
         private void tblTaskList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -296,7 +297,7 @@ namespace taskManagemetApp.src
         }
 
         // DataGridViewにカラムを作成
-        private DataGridViewTextBoxColumn CreateTextColumn(string dataPropertyName, string headerText)
+        private DataGridViewTextBoxColumn createTextColumn(string dataPropertyName, string headerText)
         {
             return new DataGridViewTextBoxColumn
             {
@@ -307,7 +308,7 @@ namespace taskManagemetApp.src
             };
         }
 
-        private void BindTasksToGrid()
+        private void bindTasksToGrid()
         {
             dgvTaskList.DataSource = null;
             dgvTaskList.DataSource = taskList;
@@ -316,14 +317,14 @@ namespace taskManagemetApp.src
         /*
          * checkColumnのチェックボックスにチェックが入っている行のタスク名をListにしてDeleteTaskに渡す
          */
-        private void GetcheckedRows()
+        private void getcheckedRows()
         {
             List<String> selectedTaskName = new List<String>();
             foreach (DataGridViewRow row in dgvTaskList.Rows)
             {
-                bool isChecked = Convert.ToBoolean(row.Cells["colCheckTask"].Value);
+                bool isChecked = Convert.ToBoolean(row.Cells["CheckTask"].Value);
 
-                if (isChecked && row.DataBoundItem is MyTask task)
+                if (isChecked && row.DataBoundItem is myTask task)
                 {
                     selectedTaskName.Add(task.TaskName);
                 }
@@ -332,13 +333,13 @@ namespace taskManagemetApp.src
             {
                 return;
             }
-            DeleteTask(selectedTaskName);
+            deleteTask(selectedTaskName);
         }
 
         /*
          * タスク削除
          */
-        private void DeleteTask(List<String> deleteTask)
+        private void deleteTask(List<String> deleteTask)
         {
             String deleteQuery = "DELETE FROM task_manage.task_info WHERE task_name in (";
 
@@ -354,8 +355,6 @@ namespace taskManagemetApp.src
             DatabaseHelper db = new DatabaseHelper(connection);
             db.ExecuteIUDQuery(deleteQuery);
         }
-
-
 
         private void dtpTaskStart_ValueChanged(object sender, EventArgs e)
         {
@@ -373,8 +372,8 @@ namespace taskManagemetApp.src
 
             if(result == DialogResult.OK)
             {
-                GetcheckedRows();
-                SelectAll();
+                getcheckedRows();
+                selectAll();
             }
             else
             {
@@ -390,7 +389,7 @@ namespace taskManagemetApp.src
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            GetConditions();
+            getConditions();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -425,7 +424,7 @@ namespace taskManagemetApp.src
                 if (columnName == "TaskName")
                 {
                     var formTaskEdit = new formTaskEdit(this);
-                    formTaskEdit.SetClickedTaskName(dgvTaskList.Rows[e.RowIndex].Cells["TaskName"].Value?.ToString());
+                    formTaskEdit.setClickedTaskName(dgvTaskList.Rows[e.RowIndex].Cells["TaskName"].Value?.ToString());
                     formTaskEdit.ShowDialog();
                     
                 }
@@ -438,18 +437,98 @@ namespace taskManagemetApp.src
         private void btnAddTask_Click(object sender, EventArgs e)
         {
             formTaskEdit formTaskEdit = new formTaskEdit(this);
-            formTaskEdit.SetClickedTaskName(null);
+            formTaskEdit.setClickedTaskName(null);
             formTaskEdit.ShowDialog();
         }
 
         /*
          * 再ロード
          */
-        public void ReloadTaskList()
+        public void searchTasks()
         {
-            SetUpDataGridView();
-            SelectAll();
-            DisplayPage();
+            btnSearch.PerformClick();
         }
+
+        /*
+         * ↓ラベルクリックイベント
+         */
+        private void lblTaskName_Click(object sender, EventArgs e)
+        {
+            txtTaskName.Focus();
+        }
+
+        private void lblTaskStatus_Click(object sender, EventArgs e)
+        {
+            cboTaskStatus.DroppedDown = true;
+        }
+
+        private void lblTaskStart_Click(object sender, EventArgs e)
+        {
+            dtpTaskStart.Focus();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void lblTaskType_Click(object sender, EventArgs e)
+        {
+            cboTaskType.DroppedDown = true;
+        }
+
+        private void lblTaskFinish_Click(object sender, EventArgs e)
+        {
+            dtpTaskFinish.Focus();
+            SendKeys.Send("%{DOWN}");
+
+        }
+        /*
+         * 日付の削除のみを許可
+         */
+        //削除のみ許可
+        private void permitDeleteOnly(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtTaskStart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            permitDeleteOnly(e);
+        }
+
+        private void txtTaskFinish_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            permitDeleteOnly(e);
+        }
+
+        //Ctrl + Vをブロック
+        private void blockPasteShortCut(KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+        private void txtTaskStart_KeyDown(object sender, KeyEventArgs e)
+        {
+            blockPasteShortCut(e);
+        }
+
+        private void txtTaskFinish_KeyDown(object sender, KeyEventArgs e)
+        {
+            blockPasteShortCut(e);
+        }
+
+        //右クリック→貼り付けをブロック
+        private void txtTaskStart_ContextMenuStripChanged(object sender, EventArgs e)
+        {
+            txtTaskStart.ContextMenuStrip = null;
+        }
+
+        private void txtTaskFinish_ContextMenuStripChanged(object sender, EventArgs e)
+        {
+            txtTaskFinish.ContextMenuStrip = null;
+        }
+
     }
 }
