@@ -160,7 +160,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resourse\todomanager.ico" />
+    <Content Include="resourse\TaskManager.ico" />
     <Content Include="xml\connection.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -114,7 +114,7 @@ namespace taskManagemetApp
         {
             if(Type == "SELECT_FAILE")
             {
-                lblError.Text = "ユーザー名、又はパスワードが誤っています";
+                lblError.Text = "ユーザーID、又はパスワードが誤っています";
             }else if(Type == "CONNECT_FAILE")
             {
                 lblError.Text = "データベース接続に失敗しました";

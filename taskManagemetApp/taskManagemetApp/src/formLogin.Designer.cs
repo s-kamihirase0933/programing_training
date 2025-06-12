@@ -119,7 +119,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form";
             this.Text = "TaskManager - ログイン";
-            this.Load += new System.EventHandler(this.form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
