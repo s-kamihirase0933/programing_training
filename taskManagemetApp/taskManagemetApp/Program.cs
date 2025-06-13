@@ -18,11 +18,11 @@ namespace taskManagemetApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var loginForm = new form())
+            using (var loginForm = new frmLogin())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new formHome()); 
+                    Application.Run(new frmTaskList()); 
                 }
             }
         }

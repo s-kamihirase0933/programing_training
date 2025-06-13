@@ -12,10 +12,10 @@ using taskManagemetApp.src;
 
 namespace taskManagemetApp
 {
-    public partial class form : Form
+    public partial class frmLogin : Form
     {
 
-        public form()
+        public frmLogin()
         {
             InitializeComponent();
         }

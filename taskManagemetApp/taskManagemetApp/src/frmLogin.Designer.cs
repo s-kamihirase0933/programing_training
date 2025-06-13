@@ -1,6 +1,6 @@
 ﻿namespace taskManagemetApp
 {
-    partial class form
+    partial class frmLogin
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -103,7 +103,7 @@
             this.lblError.Size = new System.Drawing.Size(338, 18);
             this.lblError.TabIndex = 6;
             // 
-            // form
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "form";
+            this.Name = "frmLogin";
             this.Text = "TaskManager - ログイン";
             this.ResumeLayout(false);
             this.PerformLayout();
