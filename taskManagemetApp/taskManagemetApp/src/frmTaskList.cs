@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace taskManagemetApp.src
 {
-    public partial class formHome : Form
+    public partial class frmTaskList : Form
     {
         private List<myTask> taskList;   // 全データ
         private int pageSize = 10;       // 1ページあたりの行数
@@ -24,7 +24,7 @@ namespace taskManagemetApp.src
 
 
 
-        public formHome()
+        public frmTaskList()
         {
             InitializeComponent();
             this.dgvTaskList.CellFormatting += tblTaskList_CellFormatting;
@@ -272,6 +272,10 @@ namespace taskManagemetApp.src
             }
             //checkTaskカラムのみ編集可に
             dgvTaskList.Columns["CheckTask"].ReadOnly = false;
+
+            //TaskNameカラムのテキストを青色、アンダーバーにする
+            dgvTaskList.Columns["TaskName"].DefaultCellStyle.ForeColor = Color.Blue;
+            dgvTaskList.Columns["TaskName"].DefaultCellStyle.Font = new Font(dgvTaskList.Font, FontStyle.Underline);
         }
         private void tblTaskList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -423,7 +427,7 @@ namespace taskManagemetApp.src
 
                 if (columnName == "TaskName")
                 {
-                    var formTaskEdit = new formTaskEdit(this);
+                    var formTaskEdit = new frmTaskEdit(this);
                     formTaskEdit.setClickedTaskName(dgvTaskList.Rows[e.RowIndex].Cells["TaskName"].Value?.ToString());
                     formTaskEdit.ShowDialog();
                     
@@ -436,7 +440,7 @@ namespace taskManagemetApp.src
          */
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            formTaskEdit formTaskEdit = new formTaskEdit(this);
+            frmTaskEdit formTaskEdit = new frmTaskEdit(this);
             formTaskEdit.setClickedTaskName(null);
             formTaskEdit.ShowDialog();
         }

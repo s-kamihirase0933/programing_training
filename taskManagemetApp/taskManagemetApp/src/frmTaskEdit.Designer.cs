@@ -1,6 +1,6 @@
 ﻿namespace taskManagemetApp.src
 {
-    partial class formTaskEdit
+    partial class frmTaskEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTaskEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaskEdit));
             this.lblTaskName = new System.Windows.Forms.Label();
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.lblTaskType = new System.Windows.Forms.Label();

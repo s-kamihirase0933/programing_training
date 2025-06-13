@@ -13,10 +13,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace taskManagemetApp.src
 {
-    public partial class formTaskEdit : Form
+    public partial class frmTaskEdit : Form
     {
         private String clickedTaskName;  // クリックされたタスク
-        private formHome homeForm;
+        private frmTaskList homeForm;
         public void setClickedTaskName(String clickedTaskName)
         {
             this.clickedTaskName = clickedTaskName;
@@ -25,7 +25,7 @@ namespace taskManagemetApp.src
         {
             return clickedTaskName;
         }
-        public formTaskEdit(formHome home)
+        public frmTaskEdit(frmTaskList home)
         {
             InitializeComponent();
             this.homeForm = home;

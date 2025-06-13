@@ -101,31 +101,31 @@
     <Compile Include="src\LoginSession.cs" />
     <Compile Include="src\DbConfig.cs" />
     <Compile Include="src\DatabaseHelper.cs" />
-    <Compile Include="src\formTaskEdit.cs">
+    <Compile Include="src\frmTaskEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\formTaskEdit.Designer.cs">
-      <DependentUpon>formTaskEdit.cs</DependentUpon>
+    <Compile Include="src\frmTaskEdit.Designer.cs">
+      <DependentUpon>frmTaskEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\formHome.cs">
+    <Compile Include="src\frmTaskList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\formHome.Designer.cs">
-      <DependentUpon>formHome.cs</DependentUpon>
+    <Compile Include="src\frmTaskList.Designer.cs">
+      <DependentUpon>frmTaskList.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\formLogin.cs">
+    <Compile Include="src\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\formLogin.Designer.cs">
-      <DependentUpon>formLogin.cs</DependentUpon>
+    <Compile Include="src\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="src\formHome.resx">
-      <DependentUpon>formHome.cs</DependentUpon>
+    <EmbeddedResource Include="src\frmTaskList.resx">
+      <DependentUpon>frmTaskList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\formLogin.resx">
-      <DependentUpon>formLogin.cs</DependentUpon>
+    <EmbeddedResource Include="src\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,14 +136,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\formTaskEdit.ff-Adlm-NE.resx">
-      <DependentUpon>formTaskEdit.cs</DependentUpon>
+    <EmbeddedResource Include="src\frmTaskEdit.ff-Adlm-NE.resx">
+      <DependentUpon>frmTaskEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\formTaskEdit.is.resx">
-      <DependentUpon>formTaskEdit.cs</DependentUpon>
+    <EmbeddedResource Include="src\frmTaskEdit.is.resx">
+      <DependentUpon>frmTaskEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\formTaskEdit.resx">
-      <DependentUpon>formTaskEdit.cs</DependentUpon>
+    <EmbeddedResource Include="src\frmTaskEdit.resx">
+      <DependentUpon>frmTaskEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
