@@ -117,7 +117,8 @@ namespace taskManagemetApp.src
 
                 if(taskStartDate > taskFinishDate)
                 {
-                    this.taskFinish = ""; //タスク開始日がタスク完了日の後の場合、タスク完了日を消す
+                    showErrorMsg("TASK_FINISH_ERROR");
+                    return false;
                 }
             }
             return true;
@@ -405,6 +406,7 @@ namespace taskManagemetApp.src
          * "NAME_NULL"         →「タスク名は必須項目です。」
          * "NAME_EXISTS"       →「そのタスク名は既に登録されています。」
          * "TASK_FINISH_NULL"  →「タスク完了日を入力してください。」
+         * "TASK_FINISH_ERROR" →「タスク完了日はタスク開始日以降の日付を入力してください。」
          */
         private void showErrorMsg(String msgType)
         {
@@ -418,6 +420,9 @@ namespace taskManagemetApp.src
                     break;
                 case "TASK_FINISH_NULL":
                     lblError.Text = "タスク完了日を入力してください。";
+                    break;
+                case "TASK_FINISH_ERROR":
+                    lblError.Text = "タスク完了日はタスク開始日以降の日付を入力してください。";
                     break;
             }
         }
