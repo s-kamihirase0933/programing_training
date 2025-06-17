@@ -149,7 +149,13 @@ namespace taskManagemetApp.src
             {
                 {"@taskHolderId", loginUserId}
             };
-            selectAllQuery += "ORDER BY task_start IS NULL ASC, task_start ASC";
+            selectAllQuery += "ORDER BY " +
+                              "CASE " +
+                              "WHEN LOWER(TRIM(task_status)) = '完了' THEN 2 " +
+                              "WHEN task_start IS NULL THEN 1 " +
+                              "ELSE 0 " +
+                              "END, " +
+                              "task_start ASC";
             loadTasks(selectAllQuery, parameters);
         }
         
