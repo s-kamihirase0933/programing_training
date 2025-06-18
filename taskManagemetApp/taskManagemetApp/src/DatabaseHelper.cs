@@ -62,8 +62,7 @@ public class DatabaseHelper
     // データ取得（SELECT）用
     public DataTable ExecuteSelectQuery(string query, Dictionary<string, object> parameters)
     {
-        try
-        {
+
             DataTable dataTable = new DataTable();
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -80,13 +79,5 @@ public class DatabaseHelper
                 return dataTable;
             }
         }
-        catch(Exception ex)
-        {
-            return null;
-            Console.WriteLine(ex.Message);
-        }
-        
-        
-    }
 
 }
