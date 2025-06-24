@@ -117,6 +117,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.Text = "TaskManager - ログイン";
             this.ResumeLayout(false);
